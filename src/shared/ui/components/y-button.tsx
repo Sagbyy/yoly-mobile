@@ -48,11 +48,7 @@ export function YolyButton({
       )}
       {...props}
     >
-      <Text
-        className={cn("font-geist-medium text-body flex-1 text-center", s.text)}
-      >
-        {label}
-      </Text>
+      <Text className={cn("font-geist-medium text-body", s.text)}>{label}</Text>
       {withArrow && <ArrowRight size={18} color={s.arrow} strokeWidth={2} />}
     </PrimitiveButton>
   );

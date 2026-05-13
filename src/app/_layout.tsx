@@ -1,23 +1,18 @@
-import { Stack } from "expo-router";
+import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
+import "./global.css";
 
 import { Providers } from "@/entities/providers";
-
-export const unstable_settings = {
-  anchor: "(auth)",
-};
+import { Text, View } from "react-native";
 
 export default function RootLayout() {
   return (
     <Providers>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(auth)" />
-        <Stack.Screen
-          name="modal"
-          options={{ presentation: "modal", headerShown: true, title: "Modal" }}
-        />
-      </Stack>
+      <Slot />
+      <View>
+        <Text className="text-2xl">Test de texte </Text>
+      </View>
       <StatusBar style="auto" />
     </Providers>
   );

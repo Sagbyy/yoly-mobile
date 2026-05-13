@@ -1,4 +1,4 @@
-import { Text } from "@/shared/ui/primitives/text";
+import { Display, Text, YLogo } from "@/shared/ui";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,7 +9,9 @@ export function OnboardingPage() {
   return (
     <SafeAreaView>
       <View>
-        <Text>Mon texte</Text>
+        <YLogo />
+        <Display>Leur univers.</Display>
+        <Text>Votre tranquillité d&apos;esprit.</Text>
       </View>
     </SafeAreaView>
   );

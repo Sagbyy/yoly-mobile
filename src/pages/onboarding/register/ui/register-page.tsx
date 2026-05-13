@@ -1,23 +1,10 @@
-import { StyleSheet } from "react-native";
+import { Text } from "@/shared/ui/primitives/text";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-import { ThemedText } from "@/shared/ui/themed-text";
-import { ThemedView } from "@/shared/ui/themed-view";
 
 export function RegisterPage() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">S'inscrire</ThemedText>
-      </ThemedView>
+      <Text>Register</Text>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

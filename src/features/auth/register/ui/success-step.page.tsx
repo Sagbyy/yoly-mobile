@@ -15,7 +15,10 @@ export function SuccessStep() {
   }
 
   return (
-    <SafeAreaView className="flex-1 items-center justify-center" edges={["bottom"]}>
+    <SafeAreaView
+      className="flex-1 items-center justify-center"
+      edges={["bottom"]}
+    >
       <View className="flex-1 items-center justify-center px-6">
         <H1 className="text-center">Bienvenue {firstName} !</H1>
         <Body className="text-center text-neutral-500 mt-4">

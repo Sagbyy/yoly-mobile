@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-import { H1, Body, StepLayout, YPhoneInput, YolyButton } from "@/shared/ui";
+import { Body, H1, StepLayout, YPhoneInput, YolyButton } from "@/shared/ui";
 import { sendOTP } from "../api/register";
 import { phoneSchema, type PhoneForm } from "../model/schemas";
 import { useRegisterStore } from "../model/use-register-store";
@@ -14,7 +14,12 @@ export function PhoneStep() {
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState("");
 
-  const { handleSubmit, setValue, watch, formState: { errors } } = useForm<PhoneForm>({
+  const {
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm<PhoneForm>({
     resolver: zodResolver(phoneSchema),
     defaultValues: { phone },
   });
@@ -34,15 +39,17 @@ export function PhoneStep() {
   }
 
   return (
-    <StepLayout footer={
-      <YolyButton
-        label={loading ? "Envoi..." : "Recevoir le code"}
-        withArrow
-        fullWidth
-        disabled={loading}
-        onPress={handleSubmit(onSubmit)}
-      />
-    }>
+    <StepLayout
+      footer={
+        <YolyButton
+          label={loading ? "Envoi..." : "Recevoir le code"}
+          withArrow
+          fullWidth
+          disabled={loading}
+          onPress={handleSubmit(onSubmit)}
+        />
+      }
+    >
       <H1>Ton numéro de{"\n"}téléphone ?</H1>
       <Body className="text-neutral-500 mt-2 mb-8">
         Un code de vérification te sera envoyé par SMS.

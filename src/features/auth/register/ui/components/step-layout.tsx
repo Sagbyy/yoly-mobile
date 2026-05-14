@@ -28,7 +28,7 @@ export function StepLayout({
 
   return (
     <SafeAreaView className="flex-1 bg-white" edges={["top", "left", "right"]}>
-      <View>
+      <View className="pb-4">
         {showBack && (
           <Pressable
             onPress={() => router.back()}
@@ -43,12 +43,13 @@ export function StepLayout({
         bottomOffset={16}
         contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
         keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
       >
         <View style={contentStyle}>{children}</View>
       </KeyboardAwareScrollView>
 
       <KeyboardStickyView offset={{ closed: -bottom, opened: 0 }}>
-        <View>{footer}</View>
+        <View className="pt-8">{footer}</View>
       </KeyboardStickyView>
     </SafeAreaView>
   );

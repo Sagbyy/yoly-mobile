@@ -6,11 +6,14 @@ import {
   YolyButton,
   YolyFloatingImage,
 } from "@/shared/ui";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export function OnboardingPage() {
+  const router = useRouter();
+
   return (
     <SafeAreaView className="flex-1">
       <View>
@@ -49,11 +52,21 @@ export function OnboardingPage() {
 
       <View className="gap-3 pb-4">
         <Animated.View entering={FadeInDown.delay(450).duration(500)}>
-          <YolyButton label="Commencer" withArrow fullWidth />
+          <YolyButton
+            label="Commencer"
+            withArrow
+            fullWidth
+            onPress={() => router.push("/(auth)/register")}
+          />
         </Animated.View>
 
         <Animated.View entering={FadeInDown.delay(500).duration(500)}>
-          <YolyButton label="J'ai déjà un compte" variant="white" fullWidth />
+          <YolyButton
+            label="J'ai déjà un compte"
+            variant="white"
+            fullWidth
+            onPress={() => router.push("/(auth)/login")}
+          />
         </Animated.View>
       </View>
     </SafeAreaView>

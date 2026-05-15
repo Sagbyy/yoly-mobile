@@ -1,12 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app";
 import { useRouter } from "expo-router";
-import { Eye, EyeOff } from "lucide-react-native";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Pressable, View } from "react-native";
+import { View } from "react-native";
 
-import { Body, H1, StepLayout, YInput, YolyButton } from "@/shared/ui";
+import { Body, H1, StepLayout, YEyeToggle, YInput, YolyButton } from "@/shared/ui";
 import { registerWithEmail } from "../api/register";
 import { passwordSchema, type PasswordForm } from "../model/schemas";
 import { useRegisterStore } from "../model/use-register-store";
@@ -18,16 +17,6 @@ const FIREBASE_ERRORS: Record<string, string> = {
   "auth/network-request-failed": "Erreur réseau. Réessaie.",
 };
 
-function EyeToggle({ visible, onToggle }: { visible: boolean; onToggle: () => void }) {
-  return (
-    <Pressable onPress={onToggle} className="pl-3 py-4">
-      {visible
-        ? <EyeOff size={18} color="#A3A8C3" />
-        : <Eye size={18} color="#A3A8C3" />
-      }
-    </Pressable>
-  );
-}
 
 export function PasswordStep() {
   const router = useRouter();
@@ -86,7 +75,7 @@ export function PasswordStep() {
               secureTextEntry={!showPassword}
               error={errors.password?.message}
               rightElement={
-                <EyeToggle visible={showPassword} onToggle={() => setShowPassword(v => !v)} />
+                <YEyeToggle visible={showPassword} onToggle={() => setShowPassword(v => !v)} />
               }
             />
           )}
@@ -103,7 +92,7 @@ export function PasswordStep() {
               secureTextEntry={!showConfirm}
               error={errors.confirm?.message}
               rightElement={
-                <EyeToggle visible={showConfirm} onToggle={() => setShowConfirm(v => !v)} />
+                <YEyeToggle visible={showConfirm} onToggle={() => setShowConfirm(v => !v)} />
               }
             />
           )}

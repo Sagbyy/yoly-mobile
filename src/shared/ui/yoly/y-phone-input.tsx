@@ -19,9 +19,7 @@ countriesLib.registerLocale(frLocale);
 function countryToFlag(isoCode: string) {
   return isoCode
     .toUpperCase()
-    .replace(/./g, (char) =>
-      String.fromCodePoint(127397 + char.charCodeAt(0)),
-    );
+    .replace(/./g, (char) => String.fromCodePoint(127397 + char.charCodeAt(0)));
 }
 
 function getCountryName(code: string): string {
@@ -52,11 +50,7 @@ interface YPhoneInputProps {
   onChange: (fullNumber: string) => void;
 }
 
-export function YPhoneInput({
-  label = "Numéro de téléphone",
-  error,
-  onChange,
-}: YPhoneInputProps) {
+export function YPhoneInput({ label = "Numéro de téléphone", error, onChange }: YPhoneInputProps) {
   const [countryCode, setCountryCode] = useState<CountryCode>(detectCountry);
   const [displayValue, setDisplayValue] = useState("");
   const [pickerVisible, setPickerVisible] = useState(false);
@@ -122,11 +116,7 @@ export function YPhoneInput({
 
       {error && <Caption className="text-health-alert pl-2">{error}</Caption>}
 
-      <Modal
-        visible={pickerVisible}
-        animationType="slide"
-        onRequestClose={() => setPickerVisible(false)}
-      >
+      <Modal visible={pickerVisible} animationType="slide" onRequestClose={() => setPickerVisible(false)}>
         <SafeAreaView className="flex-1 bg-white">
           <View className="px-6 pt-4 pb-3">
             <View className="flex-row items-center border border-neutral-200 rounded-full px-4 py-3 gap-3">

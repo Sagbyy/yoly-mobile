@@ -1,36 +1,21 @@
-import { firebaseApp } from "@/shared/lib/firebase";
 import {
   createUserWithEmailAndPassword,
-  getAuth,
-  signInWithPhoneNumber,
+  sendEmailVerification,
   updateProfile,
-  type ConfirmationResult,
 } from "firebase/auth";
 
-function getFirebaseAuth() {
-  return getAuth(firebaseApp);
-}
+import { auth } from "@/shared/lib/firebase";
 
-export async function sendOTP(phone: string): Promise<ConfirmationResult> {
-  const auth = getFirebaseAuth();
-  return signInWithPhoneNumber(auth, phone, undefined);
-}
-
-export async function verifyOTP(
-  confirmation: ConfirmationResult,
-  code: string,
+export async function registerWithEmail(
+  email: string,
+  password: string,
+  firstName: string,
+  lastName: string
 ) {
-  return confirmation.confirm(code);
-}
-
-export async function createAccount(email: string, password: string) {
-  const auth = getFirebaseAuth();
-  return createUserWithEmailAndPassword(auth, email, password);
-}
-
-export async function updateDisplayName(name: string) {
-  const auth = getFirebaseAuth();
-  if (auth.currentUser) {
-    return updateProfile(auth.currentUser, { displayName: name });
-  }
+  const credential = await createUserWithEmailAndPassword(auth, email, password);
+  await updateProfile(credential.user, {
+    displayName: `${firstName} ${lastName}`,
+  });
+  await sendEmailVerification(credential.user);
+  return credential.user;
 }

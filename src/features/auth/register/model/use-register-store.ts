@@ -1,4 +1,3 @@
-import type { ConfirmationResult } from "firebase/auth";
 import { create } from "zustand";
 
 type RegisterStore = {
@@ -6,7 +5,6 @@ type RegisterStore = {
   lastName: string;
   email: string;
   phone: string;
-  confirmation: ConfirmationResult | null;
   set: (data: Partial<Omit<RegisterStore, "set" | "reset">>) => void;
   reset: () => void;
 };
@@ -16,14 +14,6 @@ export const useRegisterStore = create<RegisterStore>((set) => ({
   lastName: "",
   email: "",
   phone: "",
-  confirmation: null,
   set: (data) => set((state) => ({ ...state, ...data })),
-  reset: () =>
-    set({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      confirmation: null,
-    }),
+  reset: () => set({ firstName: "", lastName: "", email: "", phone: "" }),
 }));

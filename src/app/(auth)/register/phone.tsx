@@ -1,1 +1,3 @@
-export { PhoneStep as default } from "@/features/auth/register";
+import { PhoneStep } from "@/features/auth/register";
+
+export default PhoneStep;

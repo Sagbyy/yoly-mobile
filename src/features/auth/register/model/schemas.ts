@@ -9,17 +9,14 @@ export const emailSchema = z.object({
   email: z.string().email("Email invalide"),
 });
 
-export const phoneSchema = z.object({
-  phone: z.string().regex(/^\+\d{10,15}$/, "Format requis : +33612345678"),
-});
-
-export const otpSchema = z.object({
-  code: z.string().length(6, "6 chiffres requis"),
-});
-
 export const passwordSchema = z
   .object({
-    password: z.string().min(8, "8 caractères minimum"),
+    password: z
+      .string()
+      .min(8, "8 caractères minimum")
+      .regex(/[A-Z]/, "Au moins une majuscule")
+      .regex(/[0-9]/, "Au moins un chiffre")
+      .regex(/[^A-Za-z0-9]/, "Au moins un caractère spécial"),
     confirm: z.string(),
   })
   .refine((d) => d.password === d.confirm, {
@@ -27,8 +24,11 @@ export const passwordSchema = z
     path: ["confirm"],
   });
 
+export const phoneSchema = z.object({
+  phone: z.string().regex(/^\+\d{10,15}$/, "Format requis : +33612345678"),
+});
+
 export type NameForm = z.infer<typeof nameSchema>;
 export type EmailForm = z.infer<typeof emailSchema>;
 export type PhoneForm = z.infer<typeof phoneSchema>;
-export type OTPForm = z.infer<typeof otpSchema>;
 export type PasswordForm = z.infer<typeof passwordSchema>;

@@ -9,7 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const STEPS = ["index", "email", "phone", "password"];
+const STEPS = ["index", "email", "phone", "password", "success"];
 
 function StepBar({ filled }: { filled: boolean }) {
   const width = useSharedValue(filled ? 100 : 0);

@@ -57,6 +57,17 @@ features/auth/login/
 2. `shared/ui/yoly/` — branded components (`YolyButton`, `YInput`, `YEyeToggle`, `YLogo`, `YPhoneInput`) built on primitives
 3. `shared/ui/typography/` — semantic text components (`Display`, `Title`, `H1`, `H2`, `Body`, `Caption`, `Micro`)
 
+**Component separation** — never put everything in a single component. Split pages into focused sub-components under `ui/components/`. The `.page.tsx` file is an orchestrator only: it manages top-level state (e.g. which view to show) and composes sub-components. Each sub-component owns its own logic (form state, loading state) and communicates via props/callbacks. Example structure:
+```
+pages/onboarding/login/ui/
+  forgot-password.page.tsx          ← orchestrator: manages `sent` state, picks which view
+  components/
+    forgot-password-form.tsx        ← owns form logic + Firebase call, calls onSuccess()
+    forgot-password-success.tsx     ← purely presentational, receives onBack()
+```
+
+**Nothing outside components belongs in UI files** — schemas Zod, types, constantes, helpers doivent vivre dans `features/<name>/model/` et être importés dans les composants. Un fichier `ui/` ne contient que le composant React.
+
 **Forms** — react-hook-form + `zodResolver`. Schemas live in `features/<name>/model/schemas.ts`.
 
 **Keyboard handling** — use `KeyboardAwareScrollView` + `KeyboardStickyView` from `react-native-keyboard-controller` for forms (not the Expo/RN built-ins).

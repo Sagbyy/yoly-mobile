@@ -135,7 +135,10 @@ export function LoginPage() {
             )}
           />
 
-          <Pressable className="self-end">
+          <Pressable
+            className="self-end"
+            onPress={() => router.push("/(auth)/forgot-password")}
+          >
             <Caption className="text-accent">Mot de passe oublié ?</Caption>
           </Pressable>
 

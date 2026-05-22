@@ -77,8 +77,15 @@
   "private": true,
   "jest": {
     "preset": "jest-expo",
+    "setupFilesAfterEnv": ["./jest.setup.ts"],
+    "moduleNameMapper": {
+      "^react-native-reanimated$": "<rootDir>/node_modules/react-native-reanimated/mock",
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^~/(.*)$": "<rootDir>/$1"
+    },
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg)"
+      "node_modules/(?!\\.pnpm|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|lucide-react-native|lottie-react-native|libphonenumber-js|i18n-iso-countries|nativewind|@rn-primitives|class-variance-authority|firebase|@firebase)",
+      "node_modules/\\.pnpm/[^/]+/node_modules/(?!(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|lucide-react-native|lottie-react-native|libphonenumber-js|i18n-iso-countries|nativewind|@rn-primitives|class-variance-authority|firebase|@firebase)"
     ]
   }
 }

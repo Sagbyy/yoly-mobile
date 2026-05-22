@@ -1,7 +1,7 @@
+import { useAuthStore } from "@/features/auth/login/model/use-auth-store";
+import { H1, YolyButton } from "@/shared/ui";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { H1, YolyButton } from "@/shared/ui";
-import { useAuthStore } from "@/features/auth/login/model/use-auth-store";
 
 export default function HomePage() {
   const { signOut } = useAuthStore();

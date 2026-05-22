@@ -1,6 +1,5 @@
 import { fireEvent, render, waitFor } from "@testing-library/react-native";
 import React from "react";
-import { Text, TextInput, View } from "react-native";
 import { useRegisterStore } from "../../model/use-register-store";
 import { PhoneStep } from "../phone-step.page";
 
@@ -10,23 +9,9 @@ jest.mock("expo-router", () => ({
   useRouter: () => ({ push: mockPush, back: jest.fn(), replace: jest.fn() }),
 }));
 
-// YPhoneInput ships a complex country picker with native dependencies.
-// Replace it with a simple TextInput to keep tests focused on form logic.
-jest.mock("@/shared/ui/yoly/y-phone-input", () => {
-  return {
-    YPhoneInput: ({ onChange, error, label = "Numéro de téléphone" }: any) => (
-      <View>
-        <Text>{label}</Text>
-        <TextInput
-          testID="phone-input"
-          placeholder="6 00 00 00 00"
-          onChangeText={onChange}
-        />
-        {error ? <Text>{error}</Text> : null}
-      </View>
-    ),
-  };
-});
+// Uses the manual mock at shared/ui/yoly/__mocks__/y-phone-input.tsx
+// to avoid the native country-picker dependency.
+jest.mock("@/shared/ui/yoly/y-phone-input");
 
 beforeEach(() => {
   jest.clearAllMocks();

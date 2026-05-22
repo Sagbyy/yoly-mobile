@@ -1,6 +1,9 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
+import { FirebaseError } from "firebase/app";
 import { ArrowLeft } from "lucide-react-native";
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Pressable, View } from "react-native";
 import {
   KeyboardAwareScrollView,
@@ -11,6 +14,12 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
+import {
+  FIREBASE_ERRORS,
+  LoginForm,
+  loginSchema,
+  useAuthStore,
+} from "@/features/auth/login";
 import {
   Body,
   Caption,
@@ -23,8 +32,35 @@ import {
 
 export function LoginPage() {
   const router = useRouter();
+  const { signIn } = useAuthStore();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
   const { bottom } = useSafeAreaInsets();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>({
+    resolver: zodResolver(loginSchema),
+  });
+
+  async function onSubmit({ email, password }: LoginForm) {
+    setApiError(null);
+    setLoading(true);
+    try {
+      await signIn(email, password);
+    } catch (err) {
+      if (err instanceof FirebaseError) {
+        setApiError(FIREBASE_ERRORS[err.code] ?? "Une erreur est survenue.");
+      } else {
+        setApiError("Une erreur est survenue.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <SafeAreaView className="flex-1 bg-white" edges={["top", "left", "right"]}>
@@ -58,35 +94,61 @@ export function LoginPage() {
         </View>
 
         <View className="gap-4">
-          <YInput
-            label="Email"
-            placeholder="maya@exemple.com"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoComplete="email"
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onChange, value } }) => (
+              <YInput
+                label="Email"
+                placeholder="maya@exemple.com"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoComplete="email"
+                value={value}
+                onChangeText={onChange}
+                error={errors.email?.message}
+              />
+            )}
           />
 
-          <YInput
-            label="Mot de passe"
-            placeholder="••••••••"
-            secureTextEntry={!showPassword}
-            rightElement={
-              <YEyeToggle
-                visible={showPassword}
-                onToggle={() => setShowPassword((v) => !v)}
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { onChange, value } }) => (
+              <YInput
+                label="Mot de passe"
+                placeholder="••••••••"
+                secureTextEntry={!showPassword}
+                value={value}
+                onChangeText={onChange}
+                error={errors.password?.message}
+                rightElement={
+                  <YEyeToggle
+                    visible={showPassword}
+                    onToggle={() => setShowPassword((v) => !v)}
+                  />
+                }
               />
-            }
+            )}
           />
 
           <Pressable className="self-end">
             <Caption className="text-accent">Mot de passe oublié ?</Caption>
           </Pressable>
+
+          {apiError && <Body className="text-red-500 text-sm">{apiError}</Body>}
         </View>
       </KeyboardAwareScrollView>
 
       <KeyboardStickyView offset={{ closed: -bottom, opened: 0 }}>
         <View className="pt-8 gap-3">
-          <YolyButton label="Se connecter" withArrow fullWidth />
+          <YolyButton
+            label="Se connecter"
+            withArrow
+            fullWidth
+            loading={loading}
+            onPress={handleSubmit(onSubmit)}
+          />
 
           <View className="flex-row items-center justify-center gap-1">
             <Caption className="text-neutral-500">

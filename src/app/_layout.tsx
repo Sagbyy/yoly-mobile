@@ -1,4 +1,5 @@
 import { Slot, useRouter, useSegments } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 import "./global.css";
@@ -6,6 +7,11 @@ import "./global.css";
 import { Providers } from "@/entities/providers";
 import { useAuthStore } from "@/features/auth/login/model/use-auth-store";
 import { useEffect } from "react";
+
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
 
 export default function RootLayout() {
   const { user, isLoading, init } = useAuthStore();
@@ -16,6 +22,8 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (isLoading) return;
+
+    SplashScreen.hideAsync();
 
     const inAuthGroup = segments[0] === "(auth)";
 

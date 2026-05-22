@@ -1,6 +1,11 @@
 export { useRegisterStore } from "./model/use-register-store";
-export { NameStep } from "./ui/name-step.page";
-export { EmailStep } from "./ui/email-step.page";
-export { PhoneStep } from "./ui/phone-step.page";
-export { PasswordStep } from "./ui/password-step.page";
-export { SuccessStep } from "./ui/success-step.page";
+export {
+  nameSchema,
+  emailSchema,
+  phoneSchema,
+  passwordSchema,
+  type NameForm,
+  type EmailForm,
+  type PhoneForm,
+  type PasswordForm,
+} from "./model/schemas";

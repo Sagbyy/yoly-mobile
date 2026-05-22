@@ -3,9 +3,9 @@ import { useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 
+import { nameSchema, type NameForm } from "@/features/auth/register";
+import { useRegisterStore } from "@/features/auth/register";
 import { Body, H1, StepLayout, YInput, YolyButton } from "@/shared/ui";
-import { nameSchema, type NameForm } from "../model/schemas";
-import { useRegisterStore } from "../model/use-register-store";
 
 export function NameStep() {
   const router = useRouter();

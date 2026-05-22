@@ -27,7 +27,10 @@ export function StepLayout({
   const { bottom } = useSafeAreaInsets();
 
   return (
-    <SafeAreaView className="flex-1 bg-white" edges={["top", "left", "right"]}>
+    <SafeAreaView
+      className="flex-1 bg-white"
+      edges={["top", "left", "right"]}
+    >
       <View className="pb-4">
         {showBack && (
           <Pressable

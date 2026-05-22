@@ -1,1 +1,1 @@
-export { EmailStep as default } from "@/features/auth/register";
+export { EmailStep as default } from "@/pages/onboarding/register";

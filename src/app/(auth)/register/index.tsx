@@ -1,1 +1,1 @@
-export { NameStep as default } from "@/features/auth/register";
+export { NameStep as default } from "@/pages/onboarding/register";

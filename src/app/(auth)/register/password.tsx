@@ -1,1 +1,1 @@
-export { PasswordStep as default } from "@/features/auth/register";
+export { PasswordStep as default } from "@/pages/onboarding/register";

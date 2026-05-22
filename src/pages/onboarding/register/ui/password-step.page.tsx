@@ -5,10 +5,10 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 
+import { passwordSchema, type PasswordForm } from "@/features/auth/register";
+import { useRegisterStore } from "@/features/auth/register";
+import { registerWithEmail } from "@/features/auth/register/api/register";
 import { Body, H1, StepLayout, YEyeToggle, YInput, YolyButton } from "@/shared/ui";
-import { registerWithEmail } from "../api/register";
-import { passwordSchema, type PasswordForm } from "../model/schemas";
-import { useRegisterStore } from "../model/use-register-store";
 
 const FIREBASE_ERRORS: Record<string, string> = {
   "auth/email-already-in-use": "Cet email est déjà utilisé.",
@@ -16,7 +16,6 @@ const FIREBASE_ERRORS: Record<string, string> = {
   "auth/weak-password": "Mot de passe trop faible.",
   "auth/network-request-failed": "Erreur réseau. Réessaie.",
 };
-
 
 export function PasswordStep() {
   const router = useRouter();
@@ -26,7 +25,11 @@ export function PasswordStep() {
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
 
-  const { control, handleSubmit, formState: { errors } } = useForm<PasswordForm>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<PasswordForm>({
     resolver: zodResolver(passwordSchema),
   });
 
@@ -48,15 +51,17 @@ export function PasswordStep() {
   }
 
   return (
-    <StepLayout footer={
-      <YolyButton
-        label="Créer mon compte"
-        withArrow
-        fullWidth
-        loading={loading}
-        onPress={handleSubmit(onSubmit)}
-      />
-    }>
+    <StepLayout
+      footer={
+        <YolyButton
+          label="Créer mon compte"
+          withArrow
+          fullWidth
+          loading={loading}
+          onPress={handleSubmit(onSubmit)}
+        />
+      }
+    >
       <H1>Crée ton{"\n"}mot de passe</H1>
       <Body className="text-neutral-500 mt-2 mb-8">
         8 caractères minimum, une majuscule, un chiffre, un caractère spécial.
@@ -75,7 +80,10 @@ export function PasswordStep() {
               secureTextEntry={!showPassword}
               error={errors.password?.message}
               rightElement={
-                <YEyeToggle visible={showPassword} onToggle={() => setShowPassword(v => !v)} />
+                <YEyeToggle
+                  visible={showPassword}
+                  onToggle={() => setShowPassword((v) => !v)}
+                />
               }
             />
           )}
@@ -92,14 +100,15 @@ export function PasswordStep() {
               secureTextEntry={!showConfirm}
               error={errors.confirm?.message}
               rightElement={
-                <YEyeToggle visible={showConfirm} onToggle={() => setShowConfirm(v => !v)} />
+                <YEyeToggle
+                  visible={showConfirm}
+                  onToggle={() => setShowConfirm((v) => !v)}
+                />
               }
             />
           )}
         />
-        {apiError && (
-          <Body className="text-red-500 text-sm">{apiError}</Body>
-        )}
+        {apiError && <Body className="text-red-500 text-sm">{apiError}</Body>}
       </View>
     </StepLayout>
   );

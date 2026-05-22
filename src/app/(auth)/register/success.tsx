@@ -1,1 +1,1 @@
-export { SuccessStep as default } from "@/features/auth/register";
+export { SuccessStep as default } from "@/pages/onboarding/register";

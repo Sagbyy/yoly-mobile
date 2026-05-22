@@ -2,9 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
 
+import { phoneSchema, type PhoneForm } from "@/features/auth/register";
+import { useRegisterStore } from "@/features/auth/register";
 import { Body, H1, StepLayout, YPhoneInput, YolyButton } from "@/shared/ui";
-import { phoneSchema, type PhoneForm } from "../model/schemas";
-import { useRegisterStore } from "../model/use-register-store";
 
 export function PhoneStep() {
   const router = useRouter();

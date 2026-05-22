@@ -63,7 +63,10 @@ export function LoginPage() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white" edges={["top", "left", "right"]}>
+    <SafeAreaView
+      className="flex-1 bg-white"
+      edges={["top", "left", "right"]}
+    >
       <View className="pt-2 pb-4">
         <Pressable
           onPress={() => router.back()}

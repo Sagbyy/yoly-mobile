@@ -6,7 +6,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React from "react";
-import { useRegisterStore } from "../../model/use-register-store";
+import { useRegisterStore } from "@/features/auth/register";
 import { PasswordStep } from "../password-step.page";
 
 const mockPush = jest.fn();

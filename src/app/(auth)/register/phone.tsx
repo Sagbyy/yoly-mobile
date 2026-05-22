@@ -1,3 +1,1 @@
-import { PhoneStep } from "@/features/auth/register";
-
-export default PhoneStep;
+export { PhoneStep as default } from "@/pages/onboarding/register";

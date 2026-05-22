@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from "@testing-library/react-native";
 import React from "react";
-import { useRegisterStore } from "../../model/use-register-store";
+import { useRegisterStore } from "@/features/auth/register";
 import { EmailStep } from "../email-step.page";
 
 const mockPush = jest.fn();

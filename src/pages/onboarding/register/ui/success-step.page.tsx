@@ -4,9 +4,9 @@ import LottieView from "lottie-react-native";
 import { useState } from "react";
 import { Linking, View } from "react-native";
 
+import { useRegisterStore } from "@/features/auth/register";
 import { auth } from "@/shared/lib/firebase";
 import { Body, H1, StepLayout, YolyButton } from "@/shared/ui";
-import { useRegisterStore } from "../model/use-register-store";
 
 export function SuccessStep() {
   const router = useRouter();
@@ -63,7 +63,7 @@ export function SuccessStep() {
     >
       <View className="px-6 items-center">
         <LottieView
-          source={require("../../../../../assets/animations/success-circle-check.json")}
+          source={require("~/assets/animations/success-circle-check.json")}
           autoPlay
           loop={false}
           style={{ width: 140, height: 140 }}

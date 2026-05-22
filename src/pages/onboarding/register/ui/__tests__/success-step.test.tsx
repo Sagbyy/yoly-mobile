@@ -2,7 +2,7 @@ import { auth } from "@/shared/lib/firebase";
 import { fireEvent, render, waitFor } from "@testing-library/react-native";
 import { sendEmailVerification } from "firebase/auth";
 import React from "react";
-import { useRegisterStore } from "../../model/use-register-store";
+import { useRegisterStore } from "@/features/auth/register";
 import { SuccessStep } from "../success-step.page";
 
 // Cast to allow mutating currentUser on the mock object from jest.setup.ts

@@ -25,7 +25,7 @@ export function OnboardingPage() {
         </Animated.View>
 
         <Animated.View entering={FadeInDown.delay(150).duration(500)}>
-          <Display className="dark:text-white">Leur univers.</Display>
+          <Display>Leur univers.</Display>
         </Animated.View>
 
         <Animated.View
@@ -36,7 +36,7 @@ export function OnboardingPage() {
         </Animated.View>
 
         <Animated.View entering={FadeInDown.delay(350).duration(500)}>
-          <Body className="dark:text-white">
+          <Body>
             Parce qu&apos;un simple coup d&apos;œil devrait suffire à savoir que
             tout va bien. Suivi en temps réel pour toute la famille.
           </Body>

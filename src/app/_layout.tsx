@@ -38,7 +38,7 @@ export default function RootLayout() {
   return (
     <Providers>
       <Slot />
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </Providers>
   );
 }

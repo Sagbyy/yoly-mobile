@@ -1,8 +1,9 @@
 import { DropIcon, MoonIcon, PulseIcon, StepsIcon, type IconProps } from "@/shared/ui/icons";
 import { Text } from "@/shared/ui/primitives/text";
 import { YSpark } from "@/shared/ui/yoly";
+import { useRouter } from "expo-router";
 import type { ComponentType } from "react";
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
 
 import { healthMetrics } from "../model/data";
 import type { HealthMetric, MetricIcon } from "../model/types";
@@ -19,10 +20,12 @@ const CARD_SHADOW =
   "0 1px 2px rgba(15,26,51,.04), 0 0 0 1px rgba(15,26,51,.04)";
 
 function MetricCard({ metric }: { metric: HealthMetric }) {
+  const router = useRouter();
   const Icon = ICONS[metric.icon];
 
   return (
-    <View
+    <Pressable
+      onPress={() => router.push(metric.route)}
       className="mb-3 w-[48%] rounded-[20px] bg-surface p-4"
       style={{ boxShadow: CARD_SHADOW }}
     >
@@ -67,7 +70,7 @@ function MetricCard({ metric }: { metric: HealthMetric }) {
           />
         </View>
       )}
-    </View>
+    </Pressable>
   );
 }
 

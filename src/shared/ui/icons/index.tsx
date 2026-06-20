@@ -164,6 +164,34 @@ export function BackIcon({ size = 18, color = INK }: IconProps) {
   );
 }
 
+export function ChevronIcon({ size = 14, color = INK }: IconProps) {
+  return (
+    <Svg width={size / 2} height={size} viewBox="0 0 8 14" fill="none">
+      <Path
+        d="M1 1l6 6-6 6"
+        stroke={color}
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function ArrowDownIcon({ size = 12, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M12 5v14M6 13l6 6 6-6"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 export function MicIcon({ size = 22, color = INK }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">

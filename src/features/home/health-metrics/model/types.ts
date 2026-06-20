@@ -1,7 +1,11 @@
+import type { Href } from "expo-router";
+
 export type MetricIcon = "pulse" | "steps" | "moon" | "drop";
 
 export interface HealthMetric {
   id: string;
+  /** Detail screen this card links to. */
+  route: Href;
   /** Uppercase micro label, e.g. "HEART RATE". */
   label: string;
   /** Accent color (hex) for the label, icon and chart. */

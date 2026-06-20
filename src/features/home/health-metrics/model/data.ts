@@ -1,4 +1,5 @@
 import { colors } from "@/shared/config/tokens";
+import { routes } from "@/shared/config/routes";
 
 import type { HealthMetric } from "./types";
 
@@ -6,6 +7,7 @@ import type { HealthMetric } from "./types";
 export const healthMetrics: HealthMetric[] = [
   {
     id: "heart-rate",
+    route: routes.health.heartRate,
     label: "FRÉQUENCE CARDIAQUE",
     color: colors.heart,
     icon: "pulse",
@@ -15,6 +17,7 @@ export const healthMetrics: HealthMetric[] = [
   },
   {
     id: "steps",
+    route: routes.health.activity,
     label: "PAS",
     color: colors.health,
     icon: "steps",
@@ -24,6 +27,7 @@ export const healthMetrics: HealthMetric[] = [
   },
   {
     id: "sleep",
+    route: routes.health.sleep,
     label: "NUIT DERNIÈRE",
     color: colors.sleep,
     icon: "moon",
@@ -32,6 +36,7 @@ export const healthMetrics: HealthMetric[] = [
   },
   {
     id: "stress",
+    route: routes.health.stress,
     label: "STRESS",
     color: colors.stress,
     icon: "drop",

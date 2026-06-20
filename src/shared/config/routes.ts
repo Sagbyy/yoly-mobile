@@ -1,0 +1,14 @@
+import type { Href } from "expo-router";
+
+/** Centralized route paths so screens link to each other type-safely. */
+export const routes = {
+  home: "/(app)/home",
+  alerts: "/(app)/alerts",
+  health: {
+    hub: "/(app)/health",
+    sleep: "/(app)/health/sleep",
+    stress: "/(app)/health/stress",
+    heartRate: "/(app)/health/heart-rate",
+    activity: "/(app)/health/activity",
+  },
+} as const satisfies Record<string, Href | Record<string, Href>>;

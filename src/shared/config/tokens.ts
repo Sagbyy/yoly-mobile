@@ -19,5 +19,14 @@ export const colors = {
   warn: "#E5994B",
   alert: "#D04A4A",
 
+  // Soft tints (≈ color the icon chips / banners are filled with)
+  surface3: "#F2F2F4",
+  accentSoft: "#E8ECFF",
+  healthSoft: "#E5F2EC",
+  sleepSoft: "#ECEEFA",
+  stressSoft: "#FBEDF3",
+  warnSoft: "#FCEEDC",
+  alertSoft: "#FBE9E8",
+
   liveDot: "#52E0A9",
 } as const;

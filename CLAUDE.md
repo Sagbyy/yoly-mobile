@@ -43,6 +43,8 @@ features/auth/login/
 
 ## Key Conventions
 
+**Language** — The app ships in **French**. All user-facing text (labels, titles, buttons, placeholders, alerts, tab bar, error messages) MUST be written in French. Code identifiers, comments, and docs stay in English. When generating any UI, default to French copy.
+
 **State management**
 - Zustand for client/UI state (`useAuthStore`, `useRegisterStore`)
 - TanStack Query for server state (`src/shared/lib/query-client.ts`)

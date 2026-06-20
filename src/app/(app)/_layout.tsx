@@ -54,6 +54,8 @@ export default function AppLayout() {
           ),
         }}
       />
+      {/* Pushed screen (opened from the home bell) — hidden from the tab bar. */}
+      <Tabs.Screen name="alerts" options={{ href: null }} />
     </Tabs>
   );
 }

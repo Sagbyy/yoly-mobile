@@ -22,9 +22,11 @@ export function FloatingTabBar({
         elevation: 8,
       }}
     >
-      {state.routes.map((route, index) => {
+      {state.routes
+        .filter((route) => descriptors[route.key].options.tabBarIcon)
+        .map((route) => {
         const { options } = descriptors[route.key];
-        const isFocused = state.index === index;
+        const isFocused = state.routes[state.index]?.key === route.key;
 
         const onPress = () => {
           const event = navigation.emit({

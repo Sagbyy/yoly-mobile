@@ -129,6 +129,41 @@ export function PhoneIcon({ size = 18, color = INK }: IconProps) {
   );
 }
 
+export function BatteryIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 14" fill="none">
+      <Rect x={0.8} y={0.8} width={20.4} height={12.4} rx={3} stroke={color} strokeWidth={1.4} />
+      <Rect x={3} y={3} width={13} height={8} rx={1.5} fill={color} />
+      <Rect x={22} y={5} width={1.6} height={4} rx={0.5} fill={color} />
+    </Svg>
+  );
+}
+
+export function SignalIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 16" fill="none">
+      <Rect x={0} y={11} width={4} height={5} rx={1} fill={color} />
+      <Rect x={6} y={8} width={4} height={8} rx={1} fill={color} />
+      <Rect x={12} y={4} width={4} height={12} rx={1} fill={color} />
+      <Rect x={18} y={0} width={4} height={16} rx={1} fill={color} />
+    </Svg>
+  );
+}
+
+export function BackIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M14 6l-6 6 6 6"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 export function MicIcon({ size = 22, color = INK }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">

@@ -41,7 +41,7 @@ export function ActivityTimeline() {
     <View>
       <View className="mb-3 flex-row items-center justify-between">
         <Text className="font-geist-medium text-[17px] tracking-[-0.2px] text-ink">
-          Aujourd'hui
+          {"Aujourd'hui"}
         </Text>
         <Text className="text-[13px] text-ink-3">Tout voir</Text>
       </View>

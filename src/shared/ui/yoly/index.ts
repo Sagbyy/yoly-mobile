@@ -8,3 +8,5 @@ export { StepLayout } from "./step-layout";
 export { YAvatar, type AvatarTone } from "./y-avatar";
 export { YPill } from "./y-pill";
 export { YSpark } from "./y-spark";
+export { YScreenHeader } from "./y-screen-header";
+export { YSegmented, type SegmentOption } from "./y-segmented";

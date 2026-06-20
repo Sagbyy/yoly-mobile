@@ -17,7 +17,7 @@ export function HomePage() {
       >
         {/* Greeting */}
         <View className="px-5 pt-1">
-          <Body className="text-ink-3">Hello, {homeUser.greetingName}</Body>
+          <Body className="text-ink-3">Bonjour, {homeUser.greetingName}</Body>
           <Title className="mt-0.5 text-ink">{childStatus.statusHeadline}</Title>
         </View>
 

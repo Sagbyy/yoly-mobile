@@ -8,7 +8,7 @@ export const childStatus: ChildStatus = {
   avatarTone: "rose",
   location: "École Jules Ferry",
   distance: "720m",
-  statusHeadline: "Maya is calm",
+  statusHeadline: "Maya est calme",
   watchBattery: 78,
   watchHoursLeft: 22,
   isLive: true,

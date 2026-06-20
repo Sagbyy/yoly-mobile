@@ -42,13 +42,13 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
               {child.name} · {child.age}
             </Text>
             <Text className="text-[13px] text-white/55">
-              at {child.location} · {child.distance}
+              à {child.location} · {child.distance}
             </Text>
           </View>
         </View>
         {child.isLive && (
           <YPill
-            label="Live"
+            label="En direct"
             dotColor={colors.liveDot}
             className="bg-white/10"
             textClassName="text-white"
@@ -60,7 +60,7 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
       <View className="mt-[22px] flex-row items-end justify-between">
         <View>
           <Text className="text-[11px] uppercase tracking-[0.6px] text-white/50">
-            Watch
+            Montre
           </Text>
           <View className="mt-1.5 flex-row items-center gap-2.5">
             <Text className="font-geist-medium text-[28px] leading-none text-white">
@@ -68,7 +68,7 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
               <Text className="text-[13px] text-white/50">%</Text>
             </Text>
             <Text className="text-[13px] text-white/65">
-              {child.watchHoursLeft}h left
+              {child.watchHoursLeft}h restantes
             </Text>
           </View>
         </View>

@@ -3,6 +3,7 @@ import { Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Micro } from "@/shared/ui/typography";
+import { cn } from "../lib";
 
 export function FloatingTabBar({
   state,
@@ -13,13 +14,11 @@ export function FloatingTabBar({
 
   return (
     <View
-      className="absolute left-4 right-4 flex-row rounded-2xl bg-white px-2 py-3"
+      className="absolute left-4 right-4 flex-row rounded-[30px] bg-white p-5"
       style={{
-        bottom: insets.bottom + 16,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.08,
-        shadowRadius: 16,
+        bottom: insets.bottom,
+        boxShadow:
+          "0 20px 50px -10px rgba(15,26,51,.18), 0 4px 10px rgba(15,26,51,.06)",
         elevation: 8,
       }}
     >
@@ -46,10 +45,15 @@ export function FloatingTabBar({
           >
             {options.tabBarIcon?.({
               focused: isFocused,
-              color: isFocused ? "#3b82f6" : "#9ca3af",
-              size: 22,
+              color: isFocused ? "#000" : "#9ca3af",
+              size: 18,
             })}
-            <Micro className={isFocused ? "text-accent" : "text-gray-400"}>
+            <Micro
+              className={cn(
+                isFocused ? "text-black" : "text-gray-400",
+                "normal-case text-center",
+              )}
+            >
               {options.tabBarLabel as string}
             </Micro>
           </Pressable>

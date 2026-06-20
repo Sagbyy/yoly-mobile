@@ -1,7 +1,7 @@
-import { Tabs } from "expo-router";
-import { Heart, Home, MapPin, Mic, User } from "lucide-react-native";
-
 import { FloatingTabBar } from "@/shared/ui/FloatingTabBar";
+import Feather from "@expo/vector-icons/Feather";
+import Octicons from "@expo/vector-icons/Octicons";
+import { Tabs } from "expo-router";
 
 export default function AppLayout() {
   return (
@@ -13,35 +13,45 @@ export default function AppLayout() {
         name="home"
         options={{
           tabBarLabel: "Accueil",
-          tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => (
+            <Octicons name="home" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
         name="map"
         options={{
           tabBarLabel: "Carte",
-          tabBarIcon: ({ color, size }) => <MapPin color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="map" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
         name="health"
         options={{
           tabBarLabel: "Santé",
-          tabBarIcon: ({ color, size }) => <Heart color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => (
+            <Octicons name="pulse" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
         name="audio"
         options={{
           tabBarLabel: "Audio",
-          tabBarIcon: ({ color, size }) => <Mic color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="music" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           tabBarLabel: "Profil",
-          tabBarIcon: ({ color, size }) => <User color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => (
+            <Octicons name="person" color={color} size={size} />
+          ),
         }}
       />
     </Tabs>

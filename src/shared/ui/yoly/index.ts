@@ -5,3 +5,6 @@ export { YInput } from "./y-input";
 export { YEyeToggle } from "./y-eye-toggle";
 export { YPhoneInput } from "./y-phone-input";
 export { StepLayout } from "./step-layout";
+export { YAvatar, type AvatarTone } from "./y-avatar";
+export { YPill } from "./y-pill";
+export { YSpark } from "./y-spark";

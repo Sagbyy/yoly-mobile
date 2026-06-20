@@ -26,14 +26,19 @@ module.exports = {
       // ─── Colors ───────────────────────────────────────────────────
       colors: {
         // Brand
-        ink: "#0B0B0D",
-        navy: "#0F1A33",
-        accent: "#3D5AFE",
-        bg: "#FFFFFF",
+        ink: { DEFAULT: "#0B0B0D", 2: "#5C5C63", 3: "#9A9AA1", 4: "#C7C7CC" },
+        navy: { DEFAULT: "#0F1A33", 2: "#1B2A4E", soft: "#EFF1F7" },
+        accent: { DEFAULT: "#3D5AFE", soft: "#E8ECFF" },
+        bg: { DEFAULT: "#FFFFFF", soft: "#F6F6F8" },
+
+        // Neutrals · surfaces
+        surface: { DEFAULT: "#FFFFFF", 2: "#FAFAFB", 3: "#F2F2F4" },
 
         // Semantic · Health
+        heart: "#D04A4A",
         health: {
           DEFAULT: "#2E9D74",
+          soft: "#E5F2EC",
           sleep: "#5B6FB8",
           stress: "#C76A8E",
           warn: "#E5994B",

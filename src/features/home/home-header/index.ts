@@ -1,3 +1,3 @@
 export { HomeHeader } from "./ui/home-header";
-export { homeUser } from "./model/data";
+export { useHomeUser } from "./model/use-home-user";
 export type { HomeUser } from "./model/types";

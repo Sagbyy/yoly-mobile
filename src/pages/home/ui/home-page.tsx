@@ -1,12 +1,14 @@
 import { ActivityTimeline } from "@/features/home/activity-timeline";
 import { ChildStatusCard, childStatus } from "@/features/home/child-status";
 import { HealthMetricsGrid } from "@/features/home/health-metrics";
-import { HomeHeader, homeUser } from "@/features/home/home-header";
+import { HomeHeader, useHomeUser } from "@/features/home/home-header";
 import { Body, Title } from "@/shared/ui";
 import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export function HomePage() {
+  const homeUser = useHomeUser();
+
   return (
     <SafeAreaView className="flex-1 bg-bg-soft" edges={["top"]}>
       <HomeHeader user={homeUser} />

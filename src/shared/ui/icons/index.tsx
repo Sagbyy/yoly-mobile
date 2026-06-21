@@ -164,6 +164,28 @@ export function BackIcon({ size = 18, color = INK }: IconProps) {
   );
 }
 
+export function FilterIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M4 5h16l-6 8v6l-4-2v-4L4 5z"
+        stroke={color}
+        strokeWidth={1.6}
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function LocIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Circle cx={12} cy={12} r={3} fill={color} />
+      <Circle cx={12} cy={12} r={9} stroke={color} strokeWidth={1.6} opacity={0.3} />
+    </Svg>
+  );
+}
+
 export function PlusIcon({ size = 18, color = INK }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">

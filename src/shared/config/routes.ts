@@ -11,6 +11,11 @@ export const routes = {
     heartRate: "/(app)/health/heart-rate",
     activity: "/(app)/health/activity",
   },
+  map: {
+    live: "/(app)/map",
+    savedZones: "/(app)/map/saved-zones",
+    routeHistory: "/(app)/map/route-history",
+  },
   profile: {
     hub: "/(app)/profile",
     quietModes: "/(app)/profile/quiet-modes",

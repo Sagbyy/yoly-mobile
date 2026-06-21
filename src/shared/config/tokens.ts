@@ -29,4 +29,11 @@ export const colors = {
   alertSoft: "#FBE9E8",
 
   liveDot: "#52E0A9",
+
+  // Stylized map palette
+  mapBg: "#EDEFF2",
+  mapRoad: "#FFFFFF",
+  mapRoad2: "#E2E5EB",
+  mapPark: "#E4ECE5",
+  mapWater: "#DCE5F1",
 } as const;

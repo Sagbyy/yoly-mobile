@@ -164,6 +164,14 @@ export function BackIcon({ size = 18, color = INK }: IconProps) {
   );
 }
 
+export function PlusIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path d="M12 5v14M5 12h14" stroke={color} strokeWidth={2} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
 export function ChevronIcon({ size = 14, color = INK }: IconProps) {
   return (
     <Svg width={size / 2} height={size} viewBox="0 0 8 14" fill="none">

@@ -11,4 +11,9 @@ export const routes = {
     heartRate: "/(app)/health/heart-rate",
     activity: "/(app)/health/activity",
   },
+  profile: {
+    hub: "/(app)/profile",
+    quietModes: "/(app)/profile/quiet-modes",
+    quietModeNew: "/(app)/profile/quiet-modes-new",
+  },
 } as const satisfies Record<string, Href | Record<string, Href>>;

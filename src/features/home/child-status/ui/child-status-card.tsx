@@ -1,8 +1,10 @@
 import { colors } from "@/shared/config/tokens";
-import { MicIcon, PhoneIcon } from "@/shared/ui/icons";
+import { routes } from "@/shared/config/routes";
+import { MicIcon, MoonIcon, PhoneIcon } from "@/shared/ui/icons";
 import { Text } from "@/shared/ui/primitives/text";
 import { YAvatar, YPill } from "@/shared/ui/yoly";
-import { View } from "react-native";
+import { useRouter } from "expo-router";
+import { Pressable, View } from "react-native";
 import { Circle, Defs, RadialGradient, Stop, Svg } from "react-native-svg";
 
 import type { ChildStatus } from "../model/types";
@@ -11,15 +13,27 @@ interface ChildStatusCardProps {
   child: ChildStatus;
 }
 
-function DarkIconButton({ children }: { children: React.ReactNode }) {
+function DarkIconButton({
+  children,
+  onPress,
+}: {
+  children: React.ReactNode;
+  onPress?: () => void;
+}) {
   return (
-    <View className="h-[38px] w-[38px] items-center justify-center rounded-full bg-white/10">
+    <Pressable
+      onPress={onPress}
+      hitSlop={6}
+      className="h-[38px] w-[38px] items-center justify-center rounded-full bg-white/10"
+    >
       {children}
-    </View>
+    </Pressable>
   );
 }
 
 export function ChildStatusCard({ child }: ChildStatusCardProps) {
+  const router = useRouter();
+
   return (
     <View className="overflow-hidden rounded-[28px] bg-ink p-5">
       {/* Accent glow */}
@@ -78,6 +92,9 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
           </DarkIconButton>
           <DarkIconButton>
             <MicIcon size={18} color="#fff" />
+          </DarkIconButton>
+          <DarkIconButton onPress={() => router.push(routes.profile.quietModes)}>
+            <MoonIcon size={18} color="#fff" />
           </DarkIconButton>
         </View>
       </View>

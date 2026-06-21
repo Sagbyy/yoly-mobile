@@ -1,15 +1,7 @@
 import { useAuthStore } from "@/features/auth/login";
+import { getUserDisplay } from "@/shared/lib/user";
 
 import type { HomeUser } from "./types";
-
-/** Initials from a full name, e.g. "Sarah Rossi" → "SR". */
-function initialsFrom(name: string): string {
-  const parts = name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return "?";
-  const first = parts[0][0] ?? "";
-  const last = parts.length > 1 ? (parts[parts.length - 1][0] ?? "") : "";
-  return (first + last).toUpperCase();
-}
 
 /**
  * Derives the home header view-model from the authenticated account.
@@ -19,16 +11,11 @@ function initialsFrom(name: string): string {
  */
 export function useHomeUser(): HomeUser {
   const user = useAuthStore((state) => state.user);
-
-  const displayName = user?.displayName?.trim() ?? "";
-  const emailLocalPart = user?.email?.split("@")[0] ?? "";
-  const fullName = displayName || emailLocalPart;
-
-  const greetingName = fullName.split(/\s+/)[0] || "vous";
+  const { firstName, initials } = getUserDisplay(user);
 
   return {
-    initials: fullName ? initialsFrom(fullName) : "?",
-    greetingName,
+    initials,
+    greetingName: firstName,
     hasNotifications: true,
   };
 }

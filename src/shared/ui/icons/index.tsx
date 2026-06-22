@@ -164,6 +164,74 @@ export function BackIcon({ size = 18, color = INK }: IconProps) {
   );
 }
 
+export function PlayIcon({ size = 22, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24">
+      <Path d="M7 5l13 7-13 7V5z" fill={color} />
+    </Svg>
+  );
+}
+
+export function PauseIcon({ size = 22, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24">
+      <Rect x={6} y={5} width={4} height={14} rx={1.2} fill={color} />
+      <Rect x={14} y={5} width={4} height={14} rx={1.2} fill={color} />
+    </Svg>
+  );
+}
+
+export function SearchIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Circle cx={11} cy={11} r={7} stroke={color} strokeWidth={1.6} />
+      <Path d="M21 21l-5-5" stroke={color} strokeWidth={1.6} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function ShareIcon({ size = 18, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M12 4v12M7 9l5-5 5 5M5 14v5h14v-5"
+        stroke={color}
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function PrevIcon({ size = 22, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M11 5L4 12l7 7M11 12h9"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function NextIcon({ size = 22, color = INK }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M13 5l7 7-7 7M4 12h16"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 export function FilterIcon({ size = 18, color = INK }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">

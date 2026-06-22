@@ -5,12 +5,18 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Micro } from "@/shared/ui/typography";
 import { cn } from "../lib";
 
+// Immersive dark screens that should hide the floating tab bar entirely.
+const HIDDEN_ON = ["audio-player", "audio-call"];
+
 export function FloatingTabBar({
   state,
   descriptors,
   navigation,
 }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
+
+  const focusedName = state.routes[state.index]?.name;
+  if (HIDDEN_ON.includes(focusedName)) return null;
 
   return (
     <View

@@ -16,6 +16,12 @@ export const routes = {
     savedZones: "/(app)/map/saved-zones",
     routeHistory: "/(app)/map/route-history",
   },
+  audio: {
+    recordings: "/(app)/audio",
+    player: "/(app)/audio-player",
+    call: "/(app)/audio-call",
+    callHistory: "/(app)/audio-call-history",
+  },
   profile: {
     hub: "/(app)/profile",
     quietModes: "/(app)/profile/quiet-modes",

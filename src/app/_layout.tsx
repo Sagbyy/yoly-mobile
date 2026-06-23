@@ -6,7 +6,10 @@ import "./global.css";
 
 import { Providers } from "@/entities/providers";
 import { useAuthStore } from "@/features/auth/login/model/use-auth-store";
+import { installGlobalErrorHandlers } from "@/shared/lib";
 import { useEffect } from "react";
+
+installGlobalErrorHandlers();
 
 SplashScreen.setOptions({
   duration: 1000,
@@ -28,23 +31,19 @@ export default function RootLayout() {
     const inAuthGroup = segments[0] === "(auth)";
     const inSync = segments[0] === "sync";
 
-    // Not authenticated → auth flow.
     if (!user) {
       if (!inAuthGroup) router.replace("/(auth)");
       return;
     }
 
-    // Authenticated but no paired watch → force the sync flow.
     if (watchSync === "unsynced") {
       if (!inSync) router.replace("/sync");
       return;
     }
 
-    // Authenticated with a paired watch → into the app.
     if (watchSync === "synced" && (inAuthGroup || inSync)) {
       router.replace("/(app)/home");
     }
-    // watchSync === "unknown" → still resolving, wait.
   }, [user, isLoading, watchSync, segments, router]);
 
   if (isLoading) return null;

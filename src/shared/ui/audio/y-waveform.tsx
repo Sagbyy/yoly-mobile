@@ -4,9 +4,7 @@ import { Rect, Svg } from "react-native-svg";
 interface YWaveformProps {
   bars?: number;
   color?: string;
-  /** Color for the not-yet-played portion. */
   trackColor?: string;
-  /** Played portion as a percentage (0–100). */
   playedPct?: number;
   w?: number;
   h?: number;

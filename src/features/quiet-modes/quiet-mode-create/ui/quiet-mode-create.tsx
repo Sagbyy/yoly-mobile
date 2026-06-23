@@ -24,7 +24,6 @@ export function QuietModeCreate() {
 
   return (
     <View className="px-5 pt-1">
-      {/* Name */}
       <View className="rounded-2xl bg-surface-2 p-3.5">
         <Micro>NOM</Micro>
         <Text className="mt-1.5 font-geist-medium text-[20px] text-ink">
@@ -32,7 +31,6 @@ export function QuietModeCreate() {
         </Text>
       </View>
 
-      {/* Days */}
       <H2 className="mb-2.5 mt-6 text-ink">Jours</H2>
       <View className="flex-row justify-between">
         {quietModeDefaults.dayLabels.map((label, i) => {
@@ -55,7 +53,6 @@ export function QuietModeCreate() {
         })}
       </View>
 
-      {/* Time range */}
       <H2 className="mb-2.5 mt-6 text-ink">Plage horaire</H2>
       <View className="rounded-[18px] bg-surface-2 p-[18px]">
         <View className="flex-row items-center justify-between">
@@ -74,7 +71,6 @@ export function QuietModeCreate() {
           </View>
         </View>
 
-        {/* Range visualization */}
         <View className="mt-[18px] h-7 justify-center">
           <View className="h-1 rounded-full bg-surface-3" />
           <View
@@ -112,7 +108,6 @@ export function QuietModeCreate() {
         </View>
       </View>
 
-      {/* Rules */}
       <H2 className="mb-2.5 mt-6 text-ink">Règles</H2>
       <View className="rounded-[20px] bg-surface p-1" style={{ boxShadow: CARD_SHADOW }}>
         {rules.map((rule, i) => (

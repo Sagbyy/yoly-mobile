@@ -60,7 +60,6 @@ export function RecordingsList() {
         </Pressable>
       </View>
 
-      {/* Call the watch */}
       <Pressable
         onPress={() => router.push(routes.audio.call)}
         className="mt-4 h-[52px] flex-row items-center justify-center gap-2 rounded-full bg-ink"
@@ -69,7 +68,6 @@ export function RecordingsList() {
         <Text className="font-geist-medium text-[16px] text-white">Appeler la montre</Text>
       </Pressable>
 
-      {/* Search */}
       <View
         className="mt-3 flex-row items-center gap-2 rounded-[14px] bg-surface px-3.5 py-2.5"
         style={{ boxShadow: CARD_SHADOW }}
@@ -78,7 +76,6 @@ export function RecordingsList() {
         <Text className="text-[15px] text-ink-3">Rechercher un enregistrement ou lieu</Text>
       </View>
 
-      {/* Sections */}
       {recordingSections.map((section) => (
         <View key={section.title} className="mt-5">
           <Micro className="mb-2.5">{section.title}</Micro>

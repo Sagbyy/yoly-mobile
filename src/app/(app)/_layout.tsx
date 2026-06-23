@@ -54,8 +54,7 @@ export default function AppLayout() {
           ),
         }}
       />
-      {/* Pushed screens (opened from the home bell / audio screen) — hidden
-          from the tab bar. router.back() returns to where they were opened. */}
+      {/* Pushed screens hidden from the tab bar (href: null); router.back() returns to the opener. */}
       <Tabs.Screen name="alerts" options={{ href: null }} />
       <Tabs.Screen name="audio-player" options={{ href: null }} />
       <Tabs.Screen name="audio-call" options={{ href: null }} />

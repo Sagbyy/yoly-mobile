@@ -36,7 +36,6 @@ export function HealthMetricRowCard({ row }: { row: HealthMetricRow }) {
       className="rounded-[20px] bg-surface p-4"
       style={{ boxShadow: CARD_SHADOW }}
     >
-      {/* Header */}
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-2">
           <View
@@ -60,7 +59,6 @@ export function HealthMetricRowCard({ row }: { row: HealthMetricRow }) {
         <ChevronIcon size={14} color={colors.ink3} />
       </View>
 
-      {/* Body */}
       <View className="mt-3.5 flex-row items-end justify-between">
         <View>
           <Text className="font-geist-regular text-[44px] leading-none text-ink">

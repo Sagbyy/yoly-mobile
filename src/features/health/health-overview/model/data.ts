@@ -3,7 +3,6 @@ import { routes } from "@/shared/config/routes";
 
 import type { HealthOverview } from "./types";
 
-// Static placeholder until wired to the health API.
 export const healthOverview: HealthOverview = {
   caption: "Maya · Aujourd'hui",
   headline: "Tout va bien",

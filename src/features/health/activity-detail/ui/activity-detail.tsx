@@ -12,7 +12,6 @@ const CARD_SHADOW =
 export function ActivityDetail() {
   return (
     <View className="px-5 pt-1">
-      {/* Hero */}
       <View
         className="rounded-[20px] bg-surface p-[22px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -41,7 +40,6 @@ export function ActivityDetail() {
         </View>
       </View>
 
-      {/* Week chart */}
       <View
         className="mt-4 rounded-[20px] bg-surface p-[18px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -60,7 +58,6 @@ export function ActivityDetail() {
         />
       </View>
 
-      {/* Stats grid */}
       <View className="mt-4 flex-row flex-wrap justify-between">
         {activityDetail.stats.map((stat) => (
           <View

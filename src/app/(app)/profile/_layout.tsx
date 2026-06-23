@@ -1,7 +1,6 @@
 import { Stack } from "expo-router";
 
-// Anchor the stack on the profile root so deep-linking into a sub-screen
-// (e.g. from the home shortcut) keeps `index` as the root.
+// Anchors the stack on the profile root so deep-linking keeps `index` as the root.
 export const unstable_settings = {
   initialRouteName: "index",
 };

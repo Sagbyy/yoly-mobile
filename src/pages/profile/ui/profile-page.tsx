@@ -20,7 +20,6 @@ export function ProfilePage() {
         contentContainerStyle={{ paddingBottom: 120 }}
       >
         <View className="px-5 pt-1">
-          {/* User card */}
           <View className="flex-row items-center gap-3.5">
             <YAvatar initials={initials} size={64} tone="navy" />
             <View className="flex-1">
@@ -33,11 +32,9 @@ export function ProfilePage() {
             </View>
           </View>
 
-          {/* Settings */}
           <H2 className="mb-2.5 mt-7 text-ink">Réglages</H2>
           <ProfileMenu />
 
-          {/* Logout */}
           <View className="mt-8">
             <YolyButton label="Se déconnecter" onPress={signOut} fullWidth />
           </View>

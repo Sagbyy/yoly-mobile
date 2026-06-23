@@ -1,4 +1,6 @@
+import { getPairingStatus } from "@/shared/api/pairing";
 import { auth } from "@/shared/lib/firebase";
+import { createLogger } from "@/shared/lib/logger";
 import { storage } from "@/shared/lib/storage";
 import {
   signOut as firebaseSignOut,
@@ -8,11 +10,9 @@ import {
 import { create } from "zustand";
 import { AuthState } from "../types/auth-state";
 
-// Local record of "this account has paired a watch", keyed by uid.
-// NOTE: this is the source of truth until the API exposes a
-// "GET /pairing/status" (or "/devices") endpoint — swap the read in `init`
-// for that call to make the gate robust across reinstalls.
+// Backend is the source of truth; this cached flag is an offline fallback (keyed by uid).
 const syncKey = (uid: string) => `watch-synced:${uid}`;
+const log = createLogger("auth");
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
@@ -33,7 +33,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         return;
       }
       set({ user, watchSync: "unknown" });
-      const synced = await storage.get(syncKey(user.uid));
-      set({ watchSync: synced ? "synced" : "unsynced", isLoading: false });
+      try {
+        const { linked } = await getPairingStatus();
+        await storage.set(syncKey(user.uid), linked ? "1" : "0");
+        set({ watchSync: linked ? "synced" : "unsynced", isLoading: false });
+      } catch (error) {
+        // API unreachable → fall back to the last known cached value.
+        log.warn("pairing status unreachable, using cached value", error);
+        const cached = await storage.get(syncKey(user.uid));
+        set({ watchSync: cached === "1" ? "synced" : "unsynced", isLoading: false });
+      }
     }),
 }));

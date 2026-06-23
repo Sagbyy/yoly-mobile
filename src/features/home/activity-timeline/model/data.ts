@@ -2,7 +2,6 @@ import { colors } from "@/shared/config/tokens";
 
 import type { TimelineEvent } from "./types";
 
-// Static placeholder until wired to the activity API.
 export const timelineEvents: TimelineEvent[] = [
   {
     id: "left-home",

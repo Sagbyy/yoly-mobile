@@ -1,7 +1,5 @@
 import type { Alert, CriticalAlert } from "./types";
 
-// Static placeholders until wired to the alerts API.
-
 export const criticalAlert: CriticalAlert = {
   tag: "Critique",
   timeAgo: "il y a 2 min",

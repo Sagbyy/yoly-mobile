@@ -4,9 +4,9 @@ import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 
 import { ApiError } from "@/shared/api/client";
+import { confirmPairing } from "@/shared/api/pairing";
 import { Caption, YCodeInput, YolyButton } from "@/shared/ui";
 
-import { confirmPairing } from "../model/api";
 import { pairingSchema, type PairingForm } from "../model/schemas";
 
 function messageFor(error: unknown): string {

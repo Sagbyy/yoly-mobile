@@ -32,7 +32,6 @@ export function RouteHistory() {
         <YSegmented options={PERIODS} value={period} onChange={setPeriod} />
       </View>
 
-      {/* Week summary */}
       <View
         className="rounded-[20px] bg-surface p-[18px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -68,7 +67,6 @@ export function RouteHistory() {
         </View>
       </View>
 
-      {/* Recent trips */}
       <Micro className="mb-2.5 mt-[18px]">Trajets récents</Micro>
       <View className="gap-3">
         {routeTrips.map((trip) => (

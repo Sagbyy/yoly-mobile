@@ -36,7 +36,6 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
 
   return (
     <View className="overflow-hidden rounded-[28px] bg-ink p-5">
-      {/* Accent glow */}
       <Svg width={200} height={200} style={{ position: "absolute", top: -40, right: -50 }}>
         <Defs>
           <RadialGradient id="hero-glow" cx="50%" cy="50%" r="50%">
@@ -47,7 +46,6 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
         <Circle cx={100} cy={100} r={100} fill="url(#hero-glow)" />
       </Svg>
 
-      {/* Identity row */}
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-2">
           <YAvatar initials={child.avatarInitials} size={44} tone={child.avatarTone} />
@@ -70,7 +68,6 @@ export function ChildStatusCard({ child }: ChildStatusCardProps) {
         )}
       </View>
 
-      {/* Watch row */}
       <View className="mt-[22px] flex-row items-end justify-between">
         <View>
           <Text className="text-[11px] uppercase tracking-[0.6px] text-white/50">

@@ -24,7 +24,6 @@ export function HealthOverview() {
 
   return (
     <View className="px-5 pt-1">
-      {/* Title + period */}
       <View className="flex-row items-center justify-between">
         <View>
           <Caption className="text-ink-3">{healthOverview.caption}</Caption>
@@ -33,7 +32,6 @@ export function HealthOverview() {
         <YSegmented options={PERIODS} value={period} onChange={setPeriod} />
       </View>
 
-      {/* Score hero */}
       <View
         className="mt-4 flex-row items-center justify-between rounded-[20px] bg-surface p-[22px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -56,7 +54,6 @@ export function HealthOverview() {
         <YRing pct={healthOverview.score} size={108} color={colors.health} />
       </View>
 
-      {/* Metric rows */}
       <View className="mt-4 gap-3">
         {healthOverview.rows.map((row) => (
           <HealthMetricRowCard key={row.id} row={row} />

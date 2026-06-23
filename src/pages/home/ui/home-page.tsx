@@ -17,23 +17,19 @@ export function HomePage() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 120 }}
       >
-        {/* Greeting */}
         <View className="px-5 pt-1">
           <Body className="text-ink-3">Bonjour, {homeUser.greetingName}</Body>
           <Title className="mt-0.5 text-ink">{childStatus.statusHeadline}</Title>
         </View>
 
-        {/* Hero status card */}
         <View className="mt-[18px] px-5">
           <ChildStatusCard child={childStatus} />
         </View>
 
-        {/* Quick metrics */}
         <View className="mt-4 px-5">
           <HealthMetricsGrid />
         </View>
 
-        {/* Today timeline */}
         <View className="mt-5 px-5">
           <ActivityTimeline />
         </View>

@@ -45,7 +45,6 @@ export function CallWatch() {
         {callTarget.device}
       </Text>
 
-      {/* Avatar with pulse */}
       <View className="mt-10 items-center justify-center" style={{ width: 200, height: 200 }}>
         <PulseRings size={200} />
         <YAvatar initials={callTarget.initials} size={140} tone="rose" />
@@ -58,7 +57,6 @@ export function CallWatch() {
         {callTarget.elapsed} · {callTarget.status}
       </Text>
 
-      {/* Connection strip */}
       <View className="mt-8 w-full flex-row items-center rounded-[18px] bg-white/[0.04] p-3">
         <View className="flex-1 flex-row items-center justify-center gap-1.5">
           <View style={{ width: 4, height: 4, borderRadius: 999, backgroundColor: colors.liveDot }} />
@@ -72,7 +70,6 @@ export function CallWatch() {
 
       <View className="flex-1" />
 
-      {/* Controls */}
       <View className="flex-row items-center justify-center gap-8">
         <ControlButton label="Muet" active={muted} onPress={() => setMuted((m) => !m)}>
           <MicIcon size={22} color={muted ? colors.ink : "#fff"} />

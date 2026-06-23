@@ -4,12 +4,9 @@ export interface QuietModeRule {
   enabled: boolean;
 }
 
-/** Default values for a new quiet mode (placeholder until persisted). */
 export const quietModeDefaults = {
   name: "Mode école",
-  /** Weekday labels (Mon→Sun). */
   dayLabels: ["L", "M", "M", "J", "V", "S", "D"],
-  /** Indices selected by default (Mon–Fri). */
   selectedDays: [0, 1, 2, 3, 4],
   timeFrom: "08:30",
   timeTo: "15:30",

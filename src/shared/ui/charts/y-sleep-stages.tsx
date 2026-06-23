@@ -9,7 +9,6 @@ export interface SleepSegment {
 
 interface YSleepStagesProps {
   segments: SleepSegment[];
-  /** X-axis time ticks (evenly spaced). */
   ticks?: string[];
   w?: number;
   h?: number;

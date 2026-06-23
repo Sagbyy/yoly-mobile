@@ -1,4 +1,3 @@
-// Static placeholder until wired to the call/VoIP API.
 export const callTarget = {
   initials: "M",
   name: "Maya",

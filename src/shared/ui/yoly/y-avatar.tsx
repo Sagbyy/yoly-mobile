@@ -26,7 +26,6 @@ export function YAvatar({ initials, size = 44, tone = "navy" }: YAvatarProps) {
     <View style={{ width: size, height: size }}>
       <Svg width={size} height={size} style={{ position: "absolute" }}>
         <Defs>
-          {/* 135deg gradient: top-left → bottom-right */}
           <LinearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
             <Stop offset="0" stopColor={from} />
             <Stop offset="1" stopColor={to} />

@@ -4,14 +4,12 @@ export interface SavedZone {
   id: string;
   name: string;
   address: string;
-  /** Accent color (hex) for the mini-map blob. */
   color: string;
   emoji: string;
   schedule: string;
   enabled: boolean;
 }
 
-// Static placeholder until wired to the zones API.
 export const savedZones: SavedZone[] = [
   {
     id: "home",

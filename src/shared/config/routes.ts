@@ -1,6 +1,5 @@
 import type { Href } from "expo-router";
 
-/** Centralized route paths so screens link to each other type-safely. */
 export const routes = {
   home: "/(app)/home",
   alerts: "/(app)/alerts",

@@ -16,7 +16,6 @@ export function SleepDetail() {
 
   return (
     <View className="px-5 pt-1">
-      {/* Hero score */}
       <View className="overflow-hidden rounded-[28px] bg-navy p-6">
         <Svg width={240} height={240} style={{ position: "absolute", top: -60, right: -40 }}>
           <Defs>
@@ -68,7 +67,6 @@ export function SleepDetail() {
         </View>
       </View>
 
-      {/* Stages */}
       <View
         className="mt-4 rounded-[20px] bg-surface p-[18px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -94,7 +92,6 @@ export function SleepDetail() {
         </View>
       </View>
 
-      {/* Recent nights */}
       <H2 className="mb-2.5 mt-[22px] text-ink">Nuits récentes</H2>
       <View
         className="rounded-[20px] bg-surface p-[18px]"

@@ -1,7 +1,6 @@
 import { Stack } from "expo-router";
 
-// Anchor the stack on the hub so deep-linking into a detail (e.g. from the
-// home cards) keeps `index` as the root and the Santé tab opens on the hub.
+// Anchors the stack on the hub so deep-linking keeps `index` as the root.
 export const unstable_settings = {
   initialRouteName: "index",
 };

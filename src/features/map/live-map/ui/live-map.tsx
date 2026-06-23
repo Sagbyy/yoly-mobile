@@ -69,7 +69,6 @@ export function LiveMap() {
 
   return (
     <View className="flex-1">
-      {/* Real map */}
       <MapView
         style={{ flex: 1 }}
         styleURL={StyleURL.Light}
@@ -85,7 +84,6 @@ export function LiveMap() {
           }}
         />
 
-        {/* Saved-zone geofences */}
         {mapZones.map((zone) => (
           <ShapeSource
             key={zone.id}
@@ -107,7 +105,6 @@ export function LiveMap() {
           </ShapeSource>
         ))}
 
-        {/* Today's route */}
         <ShapeSource id="route" shape={lineString(routePath)}>
           <LineLayer
             id="route-line"
@@ -120,13 +117,11 @@ export function LiveMap() {
           />
         </ShapeSource>
 
-        {/* Live pin */}
         <MarkerView coordinate={liveLocation.position} anchor={{ x: 0.5, y: 0.5 }}>
           <YLivePin initials={liveLocation.initials} />
         </MarkerView>
       </MapView>
 
-      {/* Top nav */}
       <View style={{ position: "absolute", top: insets.top + 8, left: 16, right: 16 }}>
         <View className="flex-row items-center justify-between">
           <View
@@ -154,7 +149,6 @@ export function LiveMap() {
           </GlassButton>
         </View>
 
-        {/* Live status pill */}
         <View className="mt-3 flex-row justify-center">
           <View
             className="flex-row items-center gap-1.5 rounded-full px-3 py-1.5"
@@ -168,7 +162,6 @@ export function LiveMap() {
         </View>
       </View>
 
-      {/* Zoom / locate controls */}
       <View
         className="absolute rounded-2xl p-1.5"
         style={{ right: 16, top: insets.top + 120, backgroundColor: "rgba(255,255,255,0.92)" }}
@@ -195,7 +188,6 @@ export function LiveMap() {
         </Pressable>
       </View>
 
-      {/* Bottom sheet */}
       <View
         className="absolute rounded-[28px] bg-white p-[18px]"
         style={{

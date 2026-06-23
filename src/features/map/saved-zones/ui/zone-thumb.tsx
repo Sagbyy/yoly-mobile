@@ -3,7 +3,6 @@ import { Text } from "@/shared/ui/primitives/text";
 import { View } from "react-native";
 import { Circle, Path, Rect, Svg } from "react-native-svg";
 
-/** Tiny stylized map thumbnail with a colored zone blob + emoji. */
 export function ZoneThumb({ color, emoji }: { color: string; emoji: string }) {
   return (
     <View style={{ width: 56, height: 56 }}>

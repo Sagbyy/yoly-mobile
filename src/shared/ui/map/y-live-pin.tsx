@@ -16,7 +16,6 @@ interface YLivePinProps {
   size?: number;
 }
 
-/** Live location marker with a gently pulsing halo. */
 export function YLivePin({ initials, color = colors.navy, size = 60 }: YLivePinProps) {
   const progress = useSharedValue(0);
 

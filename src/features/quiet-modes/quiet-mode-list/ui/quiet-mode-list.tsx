@@ -39,7 +39,6 @@ export function QuietModeList() {
         Planifiez des plages calmes, le temps d&apos;école et les séances de sport.
       </Body>
 
-      {/* Active now */}
       <View className="mt-[22px] overflow-hidden rounded-[22px] bg-ink p-[18px]">
         <Svg width={180} height={180} style={{ position: "absolute", top: -40, right: -40 }}>
           <Defs>
@@ -81,7 +80,6 @@ export function QuietModeList() {
         </View>
       </View>
 
-      {/* Modes list */}
       <Micro className="mb-2.5 mt-6">Modes</Micro>
       <View className="gap-3">
         {quietModes.map((mode) => {

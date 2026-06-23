@@ -11,7 +11,6 @@ interface YCodeInputProps {
   hasError?: boolean;
 }
 
-/** Segmented numeric code entry (e.g. a 6-digit pairing code). */
 export function YCodeInput({
   value,
   onChangeText,

@@ -43,7 +43,9 @@ features/auth/login/
 
 ## Key Conventions
 
-**Language** — The app ships in **French**. All user-facing text (labels, titles, buttons, placeholders, alerts, tab bar, error messages) MUST be written in French. Code identifiers, comments, and docs stay in English. When generating any UI, default to French copy.
+**Language** — The app ships in **French**. All user-facing text (labels, titles, buttons, placeholders, alerts, tab bar, error messages) MUST be written in French. Code identifiers stay in English. When generating any UI, default to French copy.
+
+**Comments** — Do NOT add comments by default. Write self-explanatory code (clear names over comments). Add a comment ONLY when it explains a non-obvious *why* the code cannot convey: a workaround, a security constraint, a subtle ordering/bug guard, or a real gotcha (e.g. coordinate order `[lng, lat]`). Never write decorative/section-header comments (`// ─── X ───`, `{/* Header */}`), comments that restate what the code does, or "placeholder" notes. Keep any kept comment to one short line.
 
 **State management**
 - Zustand for client/UI state (`useAuthStore`, `useRegisterStore`)

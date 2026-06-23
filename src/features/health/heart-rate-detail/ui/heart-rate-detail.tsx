@@ -26,7 +26,6 @@ export function HeartRateDetail() {
 
   return (
     <View className="px-5 pt-1">
-      {/* Hero */}
       <View className="overflow-hidden rounded-[20px] bg-ink p-[22px]">
         <Svg width={160} height={160} style={{ position: "absolute", top: -30, right: -30 }}>
           <Defs>
@@ -62,7 +61,6 @@ export function HeartRateDetail() {
         </View>
       </View>
 
-      {/* Graph */}
       <View
         className="mt-4 rounded-[20px] bg-surface p-[18px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -87,7 +85,6 @@ export function HeartRateDetail() {
         </View>
       </View>
 
-      {/* Detections */}
       <H2 className="mb-2.5 mt-[22px] text-ink">Détections</H2>
       <View className="gap-2">
         {heartRateDetail.detections.map((d) => (

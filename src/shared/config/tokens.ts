@@ -1,8 +1,4 @@
-/**
- * Raw color values mirroring the NativeWind palette in tailwind.config.js.
- * Use these where a className can't reach — SVG `color`/`stroke` props,
- * gradients, and other inline style values.
- */
+// Raw color values for where a className can't reach — SVG color/stroke props, gradients, inline styles.
 export const colors = {
   ink: "#0B0B0D",
   ink2: "#5C5C63",
@@ -19,7 +15,6 @@ export const colors = {
   warn: "#E5994B",
   alert: "#D04A4A",
 
-  // Soft tints (≈ color the icon chips / banners are filled with)
   surface3: "#F2F2F4",
   accentSoft: "#E8ECFF",
   healthSoft: "#E5F2EC",
@@ -30,7 +25,6 @@ export const colors = {
 
   liveDot: "#52E0A9",
 
-  // Stylized map palette
   mapBg: "#EDEFF2",
   mapRoad: "#FFFFFF",
   mapRoad2: "#E2E5EB",

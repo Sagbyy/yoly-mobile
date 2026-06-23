@@ -2,7 +2,6 @@ import { colors } from "@/shared/config/tokens";
 
 import type { AlertTone } from "./types";
 
-/** Foreground (glyph) + soft chip background for each alert tone. */
 export const TONE_STYLES: Record<AlertTone, { color: string; soft: string }> = {
   alert: { color: colors.alert, soft: colors.alertSoft },
   stress: { color: colors.stress, soft: colors.stressSoft },

@@ -10,7 +10,6 @@ import {
 } from "react-native-svg";
 
 interface YHeartRateGraphProps {
-  /** BPM samples over the window. */
   data: number[];
   min?: number;
   max?: number;
@@ -32,7 +31,6 @@ export function YHeartRateGraph({
   const points = data.map((p, i) => `${i * step},${y(p)}`);
   const line = points.join(" ");
 
-  // Highlight the highest sample.
   const peakIdx = data.indexOf(Math.max(...data));
 
   return (

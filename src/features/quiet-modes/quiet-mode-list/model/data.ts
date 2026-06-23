@@ -2,7 +2,6 @@ import { colors } from "@/shared/config/tokens";
 
 import type { ActiveQuietMode, QuietMode } from "./types";
 
-// Static placeholder until wired to the watch settings API.
 export const activeQuietMode: ActiveQuietMode = {
   name: "Mode école",
   summary: "Appels coupés · Alertes urgentes uniquement",

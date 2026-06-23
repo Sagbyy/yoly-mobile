@@ -1,6 +1,5 @@
 import type { ChildStatus } from "./types";
 
-// Static placeholder until wired to the children/watch API.
 export const childStatus: ChildStatus = {
   name: "Maya",
   age: 8,

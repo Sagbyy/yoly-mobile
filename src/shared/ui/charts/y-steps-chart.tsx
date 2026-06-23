@@ -2,9 +2,7 @@ import { colors } from "@/shared/config/tokens";
 import { Line, Rect, Svg, Text as SvgText } from "react-native-svg";
 
 interface YStepsChartProps {
-  /** Daily step counts. */
   data: number[];
-  /** Day labels under each bar. */
   days: string[];
   goal?: number;
   max?: number;

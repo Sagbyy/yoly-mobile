@@ -9,7 +9,6 @@ export interface MapZone {
   color: string;
 }
 
-// Static placeholder until wired to the live tracking API (the watch's GPS).
 // Coordinates are [longitude, latitude] (GeoJSON / Mapbox order).
 export const liveLocation = {
   initials: "M",
@@ -23,9 +22,7 @@ export const liveLocation = {
   bpm: "72 bpm",
   signal: "Bon",
 
-  /** Current position of the child's watch. */
   position: [2.3505, 48.854] as LngLat,
-  /** Default camera zoom. */
   zoom: 14.4,
 };
 
@@ -46,7 +43,6 @@ export const mapZones: MapZone[] = [
   },
 ];
 
-/** Today's route (home → school). */
 export const routePath: LngLat[] = [
   [2.347, 48.85],
   [2.3485, 48.8515],

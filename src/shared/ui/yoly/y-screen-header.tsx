@@ -7,9 +7,7 @@ import { Pressable, View } from "react-native";
 interface YScreenHeaderProps {
   title: string;
   subtitle?: string;
-  /** Shows the back chevron when an onBack handler is provided. */
   onBack?: () => void;
-  /** Optional trailing action (right side). */
   action?: ReactNode;
 }
 

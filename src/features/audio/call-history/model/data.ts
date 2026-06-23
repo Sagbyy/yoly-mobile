@@ -3,7 +3,6 @@ export type CallDirection = "outgoing" | "incoming" | "missed";
 export interface CallEntry {
   id: string;
   direction: CallDirection;
-  /** Duration, or empty for missed calls. */
   duration: string;
   time: string;
 }
@@ -13,7 +12,6 @@ export interface CallSection {
   items: CallEntry[];
 }
 
-// Static placeholder until wired to the call API.
 export const callHistory: CallSection[] = [
   {
     title: "Aujourd'hui",

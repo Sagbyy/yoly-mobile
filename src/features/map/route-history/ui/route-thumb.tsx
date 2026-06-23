@@ -1,7 +1,6 @@
 import { colors } from "@/shared/config/tokens";
 import { Circle, Path, Rect, Svg } from "react-native-svg";
 
-/** Tiny stylized map thumbnail with a route line + start/end dots. */
 export function RouteThumb({ color }: { color: string }) {
   return (
     <Svg width={80} height={80} viewBox="0 0 80 80">

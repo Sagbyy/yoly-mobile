@@ -5,11 +5,8 @@ export interface Recording {
   time: string;
   place: string;
   duration: string;
-  /** Waveform accent color (hex). */
   color: string;
-  /** Zone tag, e.g. "École" / "Trajet". */
   tag: string;
-  /** Location label shown in the player. */
   location: string;
 }
 
@@ -18,7 +15,6 @@ export interface RecordingSection {
   items: Recording[];
 }
 
-// Static placeholder until wired to the recordings API.
 export const recordingSections: RecordingSection[] = [
   {
     title: "Aujourd'hui",
@@ -82,7 +78,6 @@ export const recordingsMeta = {
   summary: "14 enregistrements · 38 min au total",
 };
 
-/** Flat lookup for the player. */
 export const allRecordings: Recording[] = recordingSections.flatMap((s) => s.items);
 
 export function findRecording(id?: string): Recording {

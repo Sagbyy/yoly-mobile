@@ -34,7 +34,6 @@ export function AudioPlayer({ recording }: { recording: Recording }) {
 
   return (
     <View className="flex-1 px-5">
-      {/* Top bar */}
       <View className="flex-row items-center justify-between pt-1.5">
         <DarkIconButton onPress={() => router.back()}>
           <BackIcon size={18} color="#fff" />
@@ -45,7 +44,6 @@ export function AudioPlayer({ recording }: { recording: Recording }) {
         </DarkIconButton>
       </View>
 
-      {/* Artwork */}
       <View className="mt-10 items-center">
         <View style={{ width: 240, height: 240, borderRadius: 32, overflow: "hidden" }}>
           <Svg width={240} height={240} style={{ position: "absolute" }}>
@@ -64,7 +62,6 @@ export function AudioPlayer({ recording }: { recording: Recording }) {
         </View>
       </View>
 
-      {/* Title */}
       <View className="mt-8 items-center">
         <Text className="font-geist-medium text-[32px] tracking-[-0.5px] text-white">
           {recording.place}
@@ -74,7 +71,6 @@ export function AudioPlayer({ recording }: { recording: Recording }) {
         </Text>
       </View>
 
-      {/* Progress */}
       <View className="mt-7">
         <View className="h-1 rounded-full bg-white/10">
           <View className="h-1 rounded-full bg-white" style={{ width: "38%" }} />
@@ -97,7 +93,6 @@ export function AudioPlayer({ recording }: { recording: Recording }) {
         </View>
       </View>
 
-      {/* Controls */}
       <View className="mt-7 flex-row items-center justify-center gap-6">
         <View className="h-[50px] w-[50px] items-center justify-center rounded-full bg-white/[0.08]">
           <PrevIcon size={22} color="#fff" />
@@ -117,7 +112,6 @@ export function AudioPlayer({ recording }: { recording: Recording }) {
         </View>
       </View>
 
-      {/* Location strip */}
       <Pressable
         onPress={() => router.push(routes.map.live)}
         className="mt-8 flex-row items-center justify-between rounded-[18px] bg-white/[0.04] p-3.5"

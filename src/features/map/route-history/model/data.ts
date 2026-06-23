@@ -9,7 +9,6 @@ export interface RouteTrip {
   color: string;
 }
 
-// Static placeholder until wired to the route history API.
 export const routeSummary = {
   stats: [
     { label: "Trajets", value: "12" },

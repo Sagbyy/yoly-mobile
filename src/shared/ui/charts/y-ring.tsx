@@ -4,15 +4,12 @@ import { View } from "react-native";
 import { Circle, G, Svg } from "react-native-svg";
 
 interface YRingProps {
-  /** Filled fraction, 0–100. */
   pct: number;
   size?: number;
   stroke?: number;
   color?: string;
   track?: string;
-  /** Centered big label (e.g. "84%" or "7:42"). */
   label?: string;
-  /** Centered small sublabel under the label. */
   sub?: string;
 }
 

@@ -1,10 +1,7 @@
 /** [longitude, latitude] — the order Mapbox / GeoJSON expect. */
 export type LngLat = [number, number];
 
-/**
- * Builds a GeoJSON Polygon approximating a geographic circle, so geofence
- * zones render at their real metric radius and scale correctly with zoom.
- */
+// Approximates a geographic circle so geofence zones render at their real metric radius.
 export function circlePolygon(
   center: LngLat,
   radiusMeters: number,
@@ -29,7 +26,6 @@ export function circlePolygon(
   };
 }
 
-/** Builds a GeoJSON LineString feature from a list of coordinates. */
 export function lineString(
   coordinates: LngLat[],
 ): GeoJSON.Feature<GeoJSON.LineString> {

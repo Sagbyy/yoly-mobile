@@ -1,8 +1,9 @@
 import { auth } from "@/shared/lib/firebase";
+import { createLogger } from "@/shared/lib/logger";
 
 const BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? "";
+const log = createLogger("api");
 
-/** Thrown on non-2xx responses, carrying the HTTP status and parsed body. */
 export class ApiError extends Error {
   constructor(
     public status: number,
@@ -14,17 +15,29 @@ export class ApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const method = init?.method ?? "GET";
+  const startedAt = Date.now();
+
   // Attach the current Firebase ID token so the API can authenticate the user.
   const token = auth.currentUser ? await auth.currentUser.getIdToken() : null;
 
-  const res = await fetch(`${BASE_URL}${path}`, {
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...init?.headers,
-    },
-    ...init,
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${BASE_URL}${path}`, {
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...init?.headers,
+      },
+      ...init,
+    });
+  } catch (networkError) {
+    // fetch rejects on connectivity failures (no host, ATS block, timeout…).
+    log.error(`${method} ${path} — network failure`, networkError);
+    throw networkError;
+  }
+
+  const ms = Date.now() - startedAt;
 
   if (!res.ok) {
     let body: unknown;
@@ -33,9 +46,11 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     } catch {
       body = undefined;
     }
+    log.warn(`${method} ${path} → ${res.status} (${ms}ms)`, { body });
     throw new ApiError(res.status, body);
   }
 
+  log.debug(`${method} ${path} → ${res.status} (${ms}ms)`);
   return res.json() as Promise<T>;
 }
 

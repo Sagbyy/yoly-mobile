@@ -21,7 +21,6 @@ const CARD_SHADOW =
 export function StressDetail() {
   return (
     <View className="px-5 pt-1">
-      {/* Score hero */}
       <View
         className="flex-row items-center justify-between rounded-[20px] bg-surface p-[22px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -52,7 +51,6 @@ export function StressDetail() {
         </View>
       </View>
 
-      {/* Curve */}
       <View
         className="mt-4 rounded-[20px] bg-surface p-[18px]"
         style={{ boxShadow: CARD_SHADOW }}
@@ -72,7 +70,6 @@ export function StressDetail() {
         </View>
       </View>
 
-      {/* Insights */}
       <H2 className="mb-2.5 mt-[22px] text-ink">Analyses</H2>
       <View className="gap-3">
         {stressDetail.insights.map((insight) => {

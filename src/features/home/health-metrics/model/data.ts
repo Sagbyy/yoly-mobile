@@ -3,7 +3,6 @@ import { routes } from "@/shared/config/routes";
 
 import type { HealthMetric } from "./types";
 
-// Static placeholder until wired to the health metrics API.
 export const healthMetrics: HealthMetric[] = [
   {
     id: "heart-rate",

@@ -42,7 +42,6 @@ function Ring({ size, delay }: { size: number; delay: number }) {
   );
 }
 
-/** Three staggered expanding rings — the "calling" pulse. */
 export function PulseRings({ size = 200 }: { size?: number }) {
   return (
     <View

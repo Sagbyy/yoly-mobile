@@ -2,9 +2,7 @@ import { colors } from "@/shared/config/tokens";
 import { G, Line, Rect, Svg, Text as SvgText } from "react-native-svg";
 
 interface YStressChartProps {
-  /** Stress values 0–100. */
   data: number[];
-  /** X-axis tick labels (evenly spaced). */
   ticks?: string[];
   w?: number;
   h?: number;

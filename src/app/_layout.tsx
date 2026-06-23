@@ -14,7 +14,7 @@ SplashScreen.setOptions({
 });
 
 export default function RootLayout() {
-  const { user, isLoading, init } = useAuthStore();
+  const { user, isLoading, init, watchSync } = useAuthStore();
   const segments = useSegments();
   const router = useRouter();
 
@@ -26,12 +26,26 @@ export default function RootLayout() {
     SplashScreen.hideAsync();
 
     const inAuthGroup = segments[0] === "(auth)";
+    const inSync = segments[0] === "sync";
 
-    if (!user && !inAuthGroup) router.replace("/(auth)");
-    else if (user && inAuthGroup) router.replace("/(app)/home");
+    // Not authenticated → auth flow.
+    if (!user) {
+      if (!inAuthGroup) router.replace("/(auth)");
+      return;
+    }
 
-    return () => {};
-  }, [user, isLoading, segments, router]);
+    // Authenticated but no paired watch → force the sync flow.
+    if (watchSync === "unsynced") {
+      if (!inSync) router.replace("/sync");
+      return;
+    }
+
+    // Authenticated with a paired watch → into the app.
+    if (watchSync === "synced" && (inAuthGroup || inSync)) {
+      router.replace("/(app)/home");
+    }
+    // watchSync === "unknown" → still resolving, wait.
+  }, [user, isLoading, watchSync, segments, router]);
 
   if (isLoading) return null;
 

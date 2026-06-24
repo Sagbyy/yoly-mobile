@@ -1,4 +1,4 @@
-import { Slot, useRouter, useSegments } from "expo-router";
+import { Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
@@ -50,7 +50,7 @@ export default function RootLayout() {
 
   return (
     <Providers>
-      <Slot />
+      <Stack screenOptions={{ headerShown: false }} />
       <StatusBar style="dark" />
     </Providers>
   );

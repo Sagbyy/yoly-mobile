@@ -1,19 +1,15 @@
 import { useAuthStore } from "@/features/auth/login";
-import { WatchSyncForm, WatchSyncSuccess } from "@/features/watch-sync";
+import { WatchSyncForm } from "@/features/watch-sync";
 import { Body, H1, YLogo } from "@/shared/ui";
 import { Text } from "@/shared/ui/primitives/text";
-import { useState } from "react";
+import { useRouter } from "expo-router";
 import { Pressable, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export function WatchSyncPage() {
-  const markWatchSynced = useAuthStore((s) => s.markWatchSynced);
+  const router = useRouter();
   const signOut = useAuthStore((s) => s.signOut);
-  const [confirmed, setConfirmed] = useState(false);
-
-  // Marking synced flips the root guard, which then redirects to the app.
-  if (confirmed) return <WatchSyncSuccess onContinue={markWatchSynced} />;
 
   return (
     <SafeAreaView className="flex-1 bg-bg-soft" edges={["top", "bottom"]}>
@@ -33,7 +29,7 @@ export function WatchSyncPage() {
           </Body>
 
           <View className="mt-8">
-            <WatchSyncForm onConfirmed={() => setConfirmed(true)} />
+            <WatchSyncForm onConfirmed={() => router.push("/sync/success")} />
           </View>
         </View>
 

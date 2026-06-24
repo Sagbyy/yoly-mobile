@@ -26,6 +26,11 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (uid) await storage.set(syncKey(uid), "1");
     set({ watchSync: "synced" });
   },
+  markWatchUnsynced: async () => {
+    const uid = get().user?.uid;
+    if (uid) await storage.set(syncKey(uid), "0");
+    set({ watchSync: "unsynced" });
+  },
   init: () =>
     onAuthStateChanged(auth, async (user) => {
       if (!user) {

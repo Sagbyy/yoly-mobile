@@ -12,5 +12,7 @@ export type AuthState = {
   signOut: () => Promise<void>;
   /** Marks the current account as paired (after a successful pairing confirm). */
   markWatchSynced: () => Promise<void>;
+  /** Marks the current account as unpaired (after unlinking the watch). */
+  markWatchUnsynced: () => Promise<void>;
   init: () => () => void;
 };

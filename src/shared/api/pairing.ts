@@ -24,3 +24,8 @@ export function getPairingStatus() {
 export function confirmPairing(code: string) {
   return api.post<ConfirmPairingResponse>("/pairing/confirm", { code });
 }
+
+/** DELETE /pairing/link — unlink the watch from the current account (idempotent). */
+export function unlinkWatch() {
+  return api.delete<void>("/pairing/link");
+}

@@ -16,7 +16,7 @@ function messageFor(error: unknown): string {
   return "Une erreur est survenue. Réessayez.";
 }
 
-export function WatchSyncForm({ onSynced }: { onSynced: () => void }) {
+export function WatchSyncForm({ onConfirmed }: { onConfirmed: () => void }) {
   const {
     control,
     handleSubmit,
@@ -29,7 +29,7 @@ export function WatchSyncForm({ onSynced }: { onSynced: () => void }) {
 
   const mutation = useMutation({
     mutationFn: (values: PairingForm) => confirmPairing(values.code),
-    onSuccess: onSynced,
+    onSuccess: onConfirmed,
   });
 
   const code = watch("code");

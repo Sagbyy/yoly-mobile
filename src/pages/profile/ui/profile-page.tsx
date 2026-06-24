@@ -1,5 +1,6 @@
 import { useAuthStore } from "@/features/auth/login";
 import { ProfileMenu } from "@/features/profile/profile-menu";
+import { UnlinkWatchButton } from "@/features/watch-unlink";
 import { getUserDisplay } from "@/shared/lib/user";
 import { Body, H2, YolyButton } from "@/shared/ui";
 import { Text } from "@/shared/ui/primitives/text";
@@ -34,6 +35,9 @@ export function ProfilePage() {
 
           <H2 className="mb-2.5 mt-7 text-ink">Réglages</H2>
           <ProfileMenu />
+
+          <H2 className="mb-2.5 mt-7 text-ink">Appareil</H2>
+          <UnlinkWatchButton />
 
           <View className="mt-8">
             <YolyButton label="Se déconnecter" onPress={signOut} fullWidth />

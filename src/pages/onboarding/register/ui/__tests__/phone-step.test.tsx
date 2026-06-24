@@ -9,8 +9,6 @@ jest.mock("expo-router", () => ({
   useRouter: () => ({ push: mockPush, back: jest.fn(), replace: jest.fn() }),
 }));
 
-// Uses the manual mock at shared/ui/yoly/__mocks__/y-phone-input.tsx
-// to avoid the native country-picker dependency.
 jest.mock("@/shared/ui/yoly/y-phone-input");
 
 beforeEach(() => {

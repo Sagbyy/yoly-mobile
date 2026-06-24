@@ -18,7 +18,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const method = init?.method ?? "GET";
   const startedAt = Date.now();
 
-  // Attach the current Firebase ID token so the API can authenticate the user.
   const token = auth.currentUser ? await auth.currentUser.getIdToken() : null;
 
   let res: Response;
@@ -32,7 +31,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       ...init,
     });
   } catch (networkError) {
-    // fetch rejects on connectivity failures (no host, ATS block, timeout…).
     log.error(`${method} ${path} — network failure`, networkError);
     throw networkError;
   }

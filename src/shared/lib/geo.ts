@@ -1,14 +1,12 @@
-/** [longitude, latitude] — the order Mapbox / GeoJSON expect. */
 export type LngLat = [number, number];
 
-// Approximates a geographic circle so geofence zones render at their real metric radius.
 export function circlePolygon(
   center: LngLat,
   radiusMeters: number,
   steps = 64,
 ): GeoJSON.Feature<GeoJSON.Polygon> {
   const [lng, lat] = center;
-  const earth = 6378137; // metres
+  const earth = 6378137;
   const dLat = (radiusMeters / earth) * (180 / Math.PI);
   const dLng =
     (radiusMeters / (earth * Math.cos((Math.PI * lat) / 180))) * (180 / Math.PI);

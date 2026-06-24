@@ -9,7 +9,6 @@ export interface MapZone {
   color: string;
 }
 
-// Coordinates are [longitude, latitude] (GeoJSON / Mapbox order).
 export const liveLocation = {
   initials: "M",
   name: "Maya",

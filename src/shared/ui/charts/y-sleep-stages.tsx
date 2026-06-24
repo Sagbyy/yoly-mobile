@@ -1,7 +1,6 @@
 import { colors } from "@/shared/config/tokens";
 import { Rect, Svg, Text as SvgText } from "react-native-svg";
 
-/** 0 = Awake, 1 = REM, 2 = Light, 3 = Deep. */
 export interface SleepSegment {
   stage: 0 | 1 | 2 | 3;
   minutes: number;

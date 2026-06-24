@@ -54,7 +54,6 @@ export default function AppLayout() {
           ),
         }}
       />
-      {/* Pushed screens hidden from the tab bar (href: null); router.back() returns to the opener. */}
       <Tabs.Screen name="alerts" options={{ href: null }} />
       <Tabs.Screen name="audio-player" options={{ href: null }} />
       <Tabs.Screen name="audio-call" options={{ href: null }} />

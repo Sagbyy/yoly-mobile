@@ -45,7 +45,9 @@ features/auth/login/
 
 **Language** — The app ships in **French**. All user-facing text (labels, titles, buttons, placeholders, alerts, tab bar, error messages) MUST be written in French. Code identifiers stay in English. When generating any UI, default to French copy.
 
-**Comments** — Do NOT add comments by default. Write self-explanatory code (clear names over comments). Add a comment ONLY when it explains a non-obvious *why* the code cannot convey: a workaround, a security constraint, a subtle ordering/bug guard, or a real gotcha (e.g. coordinate order `[lng, lat]`). Never write decorative/section-header comments (`// ─── X ───`, `{/* Header */}`), comments that restate what the code does, or "placeholder" notes. Keep any kept comment to one short line.
+**Comments** — Do NOT add comments. Write self-explanatory code (clear names over comments). The only allowed comments are tooling directives (`eslint-disable`, `@ts-expect-error`, etc.). No decorative/section-header comments, no comments restating the code, no JSDoc, no "placeholder" notes.
+
+**Testing** — ALWAYS ship tests with new code. Jest (`jest-expo`) is configured; run `pnpm test` (or `npx jest --watchAll=false`). Every new module containing logic — Zod schemas, Zustand stores, `shared/lib` utilities, `shared/api` wrappers, `model/` data helpers — MUST have a colocated `__tests__/*.test.ts`. Prefer unit tests on pure logic over brittle UI snapshots; for components, test behavior (interaction → outcome) like the existing `pages/onboarding` tests. Never leave new logic untested.
 
 **State management**
 - Zustand for client/UI state (`useAuthStore`, `useRegisterStore`)

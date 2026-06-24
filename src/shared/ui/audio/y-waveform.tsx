@@ -18,7 +18,6 @@ export function YWaveform({
   w = 220,
   h = 26,
 }: YWaveformProps) {
-  // Deterministic pseudo-random heights (stable across renders).
   const amps = Array.from({ length: bars }, (_, i) => {
     const s =
       Math.sin(i * 0.5) * 0.5 + Math.cos(i * 1.3) * 0.4 + Math.sin(i * 0.21) * 0.3;

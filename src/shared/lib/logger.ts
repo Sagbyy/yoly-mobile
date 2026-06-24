@@ -21,7 +21,6 @@ export interface LogTransport {
   log(entry: LogEntry): void;
 }
 
-// Sensitive values are masked before any value is logged.
 const SENSITIVE_KEYS = [
   "authorization",
   "token",
@@ -41,7 +40,6 @@ const MAX_STRING = 500;
 const REDACTED = "[redacted]";
 
 function redactString(value: string): string {
-  // Mask bearer tokens / long opaque secrets that appear inline.
   const masked = value.replace(/Bearer\s+[A-Za-z0-9._-]+/gi, "Bearer [redacted]");
   return masked.length > MAX_STRING ? `${masked.slice(0, MAX_STRING)}…` : masked;
 }
@@ -104,9 +102,7 @@ class Logger {
     for (const t of transports) {
       try {
         t.log(entry);
-      } catch {
-        // never let logging crash the app
-      }
+      } catch {}
     }
   }
 

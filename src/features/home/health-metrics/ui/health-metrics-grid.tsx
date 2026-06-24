@@ -15,7 +15,6 @@ const ICONS: Record<MetricIcon, ComponentType<IconProps>> = {
   drop: DropIcon,
 };
 
-// --y-e1: hairline + soft drop shadow.
 const CARD_SHADOW =
   "0 1px 2px rgba(15,26,51,.04), 0 0 0 1px rgba(15,26,51,.04)";
 

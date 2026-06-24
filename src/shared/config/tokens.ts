@@ -1,4 +1,3 @@
-// Raw color values for where a className can't reach — SVG color/stroke props, gradients, inline styles.
 export const colors = {
   ink: "#0B0B0D",
   ink2: "#5C5C63",

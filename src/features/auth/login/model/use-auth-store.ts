@@ -10,7 +10,6 @@ import {
 import { create } from "zustand";
 import { AuthState } from "../types/auth-state";
 
-// Backend is the source of truth; this cached flag is an offline fallback (keyed by uid).
 const syncKey = (uid: string) => `watch-synced:${uid}`;
 const log = createLogger("auth");
 
@@ -43,7 +42,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         await storage.set(syncKey(user.uid), linked ? "1" : "0");
         set({ watchSync: linked ? "synced" : "unsynced", isLoading: false });
       } catch (error) {
-        // API unreachable → fall back to the last known cached value.
         log.warn("pairing status unreachable, using cached value", error);
         const cached = await storage.get(syncKey(user.uid));
         set({ watchSync: cached === "1" ? "synced" : "unsynced", isLoading: false });

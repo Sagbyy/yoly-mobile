@@ -31,7 +31,6 @@ const {
   StyleURL,
 } = Mapbox;
 
-// Clearance so the bottom sheet sits cleanly above the floating tab bar.
 const TAB_BAR_CLEARANCE = 96;
 
 function GlassButton({

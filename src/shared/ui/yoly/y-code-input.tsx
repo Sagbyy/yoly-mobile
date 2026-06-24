@@ -42,7 +42,6 @@ export function YCodeInput({
         );
       })}
 
-      {/* Invisible field capturing the real input. */}
       <TextInput
         ref={inputRef}
         value={value}

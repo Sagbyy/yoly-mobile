@@ -5,7 +5,6 @@ import React from "react";
 import { useRegisterStore } from "@/features/auth/register";
 import { SuccessStep } from "../success-step.page";
 
-// Cast to allow mutating currentUser on the mock object from jest.setup.ts
 const mockAuth = auth as { currentUser: { uid: string } | null };
 
 const mockReplace = jest.fn();

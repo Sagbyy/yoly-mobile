@@ -29,6 +29,9 @@ import {
   YLogo,
   YolyButton,
 } from "@/shared/ui";
+import { createLogger } from "@/shared/lib/logger";
+
+const log = createLogger("auth");
 
 export function LoginPage() {
   const router = useRouter();
@@ -53,8 +56,10 @@ export function LoginPage() {
       await signIn(email, password);
     } catch (err) {
       if (err instanceof FirebaseError) {
+        log.error("sign-in failed", { code: err.code, message: err.message });
         setApiError(FIREBASE_ERRORS[err.code] ?? "Une erreur est survenue.");
       } else {
+        log.error("sign-in failed (non-firebase)", err);
         setApiError("Une erreur est survenue.");
       }
     } finally {

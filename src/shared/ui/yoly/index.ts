@@ -12,3 +12,4 @@ export { YScreenHeader } from "./y-screen-header";
 export { YSegmented, type SegmentOption } from "./y-segmented";
 export { YSwitch } from "./y-switch";
 export { YCodeInput } from "./y-code-input";
+export { YLoadingState, YErrorState } from "./y-async-state";

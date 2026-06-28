@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 
@@ -27,9 +27,14 @@ export function WatchSyncForm({ onConfirmed }: { onConfirmed: () => void }) {
     defaultValues: { code: "" },
   });
 
+  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (values: PairingForm) => confirmPairing(values.code),
-    onSuccess: onConfirmed,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["pairing"] });
+      queryClient.invalidateQueries({ queryKey: ["health"] });
+      onConfirmed();
+    },
   });
 
   const code = watch("code");

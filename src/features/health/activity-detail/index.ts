@@ -1,2 +1,3 @@
 export { ActivityDetail } from "./ui/activity-detail";
-export { activityDetail } from "./model/data";
+export { useActivity } from "./model/use-activity";
+export type { ActivityView } from "./model/map";

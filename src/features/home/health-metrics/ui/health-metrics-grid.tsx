@@ -1,11 +1,11 @@
 import { DropIcon, MoonIcon, PulseIcon, StepsIcon, type IconProps } from "@/shared/ui/icons";
 import { Text } from "@/shared/ui/primitives/text";
-import { YSpark } from "@/shared/ui/yoly";
+import { YErrorState, YLoadingState, YSpark } from "@/shared/ui/yoly";
 import { useRouter } from "expo-router";
 import type { ComponentType } from "react";
 import { Pressable, View } from "react-native";
 
-import { healthMetrics } from "../model/data";
+import { useHealthMetrics } from "../model/use-health-metrics";
 import type { HealthMetric, MetricIcon } from "../model/types";
 
 const ICONS: Record<MetricIcon, ComponentType<IconProps>> = {
@@ -74,9 +74,14 @@ function MetricCard({ metric }: { metric: HealthMetric }) {
 }
 
 export function HealthMetricsGrid() {
+  const { data, isPending, isError, refetch } = useHealthMetrics();
+
+  if (isPending) return <YLoadingState />;
+  if (isError || !data) return <YErrorState onRetry={() => refetch()} />;
+
   return (
     <View className="flex-row flex-wrap justify-between">
-      {healthMetrics.map((metric) => (
+      {data.map((metric) => (
         <MetricCard key={metric.id} metric={metric} />
       ))}
     </View>

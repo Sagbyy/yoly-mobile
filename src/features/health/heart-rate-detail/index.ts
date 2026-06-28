@@ -1,2 +1,3 @@
 export { HeartRateDetail } from "./ui/heart-rate-detail";
-export { heartRateDetail } from "./model/data";
+export { useHeartRate } from "./model/use-heart-rate";
+export type { HeartRateView, HeartDetection } from "./model/map";

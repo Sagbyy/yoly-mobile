@@ -42,7 +42,7 @@ export default function RootLayout() {
     }
 
     if (watchSync === "synced" && (inAuthGroup || inSync)) {
-      router.replace("/(app)/home");
+      router.replace("/home");
     }
   }, [user, isLoading, watchSync, segments, router]);
 

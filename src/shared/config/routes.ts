@@ -1,29 +1,29 @@
 import type { Href } from "expo-router";
 
 export const routes = {
-  home: "/(app)/home",
-  alerts: "/(app)/alerts",
+  home: "/home",
+  alerts: "/alerts",
   health: {
-    hub: "/(app)/health",
-    sleep: "/(app)/health/sleep",
-    stress: "/(app)/health/stress",
-    heartRate: "/(app)/health/heart-rate",
-    activity: "/(app)/health/activity",
+    hub: "/health",
+    sleep: "/sleep",
+    stress: "/stress",
+    heartRate: "/heart-rate",
+    activity: "/activity",
   },
   map: {
-    live: "/(app)/map",
-    savedZones: "/(app)/map/saved-zones",
-    routeHistory: "/(app)/map/route-history",
+    live: "/map",
+    savedZones: "/map/saved-zones",
+    routeHistory: "/map/route-history",
   },
   audio: {
-    recordings: "/(app)/audio",
-    player: "/(app)/audio-player",
-    call: "/(app)/audio-call",
-    callHistory: "/(app)/audio-call-history",
+    recordings: "/audio",
+    player: "/audio-player",
+    call: "/audio-call",
+    callHistory: "/audio-call-history",
   },
   profile: {
-    hub: "/(app)/profile",
-    quietModes: "/(app)/profile/quiet-modes",
-    quietModeNew: "/(app)/profile/quiet-modes-new",
+    hub: "/profile",
+    quietModes: "/profile/quiet-modes",
+    quietModeNew: "/profile/quiet-modes-new",
   },
 } as const satisfies Record<string, Href | Record<string, Href>>;
